@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { tripData } from "@/app/data/trip";
 import { Plane, Heart } from "lucide-react";
 import { CountryFlag } from "./country-flag";
@@ -72,36 +73,13 @@ export function TripHeader() {
 
           {/* Route */}
           <div className="flex flex-wrap items-center gap-2 text-sm">
-            <span className="flex items-center gap-1.5 font-semibold">
-              <CountryFlag countryCode="BR" name="Brasil" size={16} />
-              <span className="font-mono">BSB</span>
-            </span>
-            <span className="text-muted">→</span>
-            <span className="flex items-center gap-1.5">
-              <CountryFlag countryCode="BR" name="Brasil" size={16} />
-              <span className="font-mono text-muted">GRU</span>
-            </span>
             {cities.map((city, i) => (
               <span key={city.id} className="flex items-center gap-2">
-                <span className="text-muted">→</span>
-                <span className="flex items-center gap-1.5 font-medium">
+                {i > 0 && <span className="text-muted">→</span>}
+                <Link href={`/${city.id}`} className="flex items-center gap-1.5 font-medium hover:text-white transition-colors">
                   <CountryFlag countryCode={city.countryCode} name={city.country} size={16} />
                   {city.name}
-                </span>
-                {i === cities.length - 1 && (
-                  <>
-                    <span className="text-muted">→</span>
-                    <span className="flex items-center gap-1.5">
-                      <CountryFlag countryCode="BR" name="Brasil" size={16} />
-                      <span className="font-mono text-muted">GRU</span>
-                    </span>
-                    <span className="text-muted">→</span>
-                    <span className="flex items-center gap-1.5 font-semibold">
-                      <CountryFlag countryCode="BR" name="Brasil" size={16} />
-                      <span className="font-mono">BSB</span>
-                    </span>
-                  </>
-                )}
+                </Link>
               </span>
             ))}
           </div>
