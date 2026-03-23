@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { tripData } from "@/app/data/trip";
 import { TripHeader } from "@/app/components/trip-header";
-import { CityNav } from "@/app/components/city-nav";
 import { Countdown } from "@/app/components/countdown";
 import { BookingAlerts } from "@/app/components/booking-alerts";
 import { BudgetTable } from "@/app/components/budget-table";
@@ -13,7 +12,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans">
       <TripHeader />
-      <CityNav />
       <Countdown />
       <BookingAlerts />
 
@@ -52,7 +50,7 @@ export default function Home() {
                   <span>{city.dates}</span>
                   <span>•</span>
                   <span>
-                    {city.nights} {city.nights === 1 ? "noite" : "noites"}
+                    {city.nights === 0 ? "trânsito" : `${city.nights} ${city.nights === 1 ? "noite" : "noites"}`}
                   </span>
                 </div>
 
