@@ -66,7 +66,7 @@ export const tripData: TripData = {
   startDate: "22 de Setembro",
   endDate: "13 de Outubro",
   totalDays: 21,
-  totalCountries: 5,
+  totalCountries: 6,
   travelers: [
     { name: "Lidia", emoji: "👩" },
     { name: "Pedro", emoji: "👨" },
@@ -108,6 +108,60 @@ export const tripData: TripData = {
     "Vaticano + Sistina",
   ],
   cities: [
+    {
+      id: "brasil-ida",
+      name: "Brasil (Partida)",
+      country: "Brasil",
+      flag: "🇧🇷",
+      countryCode: "BR",
+      icon: "✈",
+      dates: "22/set",
+      nights: 0,
+      color: "#009c3b",
+      colorBg: "bg-green-950/30",
+      colorBorder: "border-green-500/30",
+      colorText: "text-green-400",
+      transport: "BSB → GRU → MAD",
+      days: [
+        {
+          date: "22/set",
+          weekday: "Terça",
+          dayNumber: 0,
+          title: "Partida de Brasília → Guarulhos → Madrid",
+          activities: [
+            {
+              time: "Manhã",
+              icon: "luggage",
+              title: "Check-in Aeroporto de Brasília (BSB)",
+              description:
+                "Documentos, passaportes, malas despachadas. Chegar com antecedência!",
+            },
+            {
+              time: "Dia",
+              icon: "plane",
+              title: "Voo BSB → GRU",
+              description:
+                "Voo doméstico Brasília → São Paulo Guarulhos. Conexão para voo internacional.",
+            },
+            {
+              time: "Tarde",
+              icon: "clock",
+              title: "Conexão em Guarulhos (GRU)",
+              description:
+                "Transição do terminal doméstico para o internacional. Aproveite para comer e fazer compras no duty free.",
+            },
+            {
+              time: "19:20",
+              icon: "plane",
+              title: "Voo GRU → MAD (Iberia)",
+              description:
+                "Voo noturno direto São Paulo → Madrid. 31.250 Avios por pessoa. Chegada 10:45 do dia seguinte.",
+              tip: "Voo noturno — tente dormir no avião para chegar descansado!",
+            },
+          ],
+        },
+      ],
+    },
     {
       id: "madrid",
       name: "Madrid",
@@ -804,25 +858,63 @@ export const tripData: TripData = {
             },
           ],
         },
+      ],
+    },
+    {
+      id: "brasil-volta",
+      name: "Brasil (Chegada)",
+      country: "Brasil",
+      flag: "🇧🇷",
+      countryCode: "BR",
+      icon: "🏠",
+      dates: "13/out",
+      nights: 0,
+      color: "#009c3b",
+      colorBg: "bg-green-950/30",
+      colorBorder: "border-green-500/30",
+      colorText: "text-green-400",
+      transport: "MAD → GRU → BSB",
+      days: [
         {
           date: "13/out",
           weekday: "Terça",
           dayNumber: 21,
-          title: "Volta ao Brasil",
+          title: "Volta ao Brasil — Madrid → Guarulhos → Brasília",
           activities: [
+            {
+              time: "Manhã",
+              icon: "shopping-bag",
+              title: "Duty Free Aeroporto de Barajas",
+              description:
+                "Últimas compras antes de embarcar. 21 dias, 5 países, 8 cidades!",
+            },
             {
               time: "Dia",
               icon: "plane",
               title: "Voo MAD → GRU (Iberia/Avios)",
               description:
-                "Duty Free Barajas. 21 dias, 5 países, 8 cidades!",
+                "Voo internacional Madrid → São Paulo Guarulhos. Despedida da Europa!",
+            },
+            {
+              time: "Noite",
+              icon: "clock",
+              title: "Chegada em Guarulhos (GRU)",
+              description:
+                "Imigração, retirada de bagagem e conexão para voo doméstico.",
             },
             {
               time: "Noite",
               icon: "plane",
               title: "Voo GRU → BSB",
               description:
-                "Último trecho! De volta pra casa com memórias pra vida toda!",
+                "Último trecho! São Paulo Guarulhos → Brasília. De volta pra casa com memórias pra vida toda!",
+            },
+            {
+              time: "Noite",
+              icon: "home",
+              title: "Chegada em Brasília!",
+              description:
+                "Fim da Eurotrip 2026! 🏠 De volta ao lar.",
             },
           ],
         },
