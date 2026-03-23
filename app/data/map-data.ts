@@ -29,6 +29,48 @@ export interface CityMapData {
 }
 
 export const mapData: Record<string, CityMapData> = {
+  "brasil-ida": {
+    center: [-20.0, -47.0],
+    zoom: 5,
+    pois: [
+      { id: "bsb-aeroporto", label: "Aeroporto de Brasília (BSB)", lat: -15.8711, lng: -47.9186, day: 0, time: "Manhã", description: "Check-in e embarque doméstico" },
+      { id: "gru-aeroporto", label: "Aeroporto de Guarulhos (GRU)", lat: -23.4356, lng: -46.4731, day: 0, time: "Dia", description: "Conexão doméstico → internacional" },
+    ],
+    trainRoutes: [
+      {
+        fromId: "bsb-aeroporto",
+        toId: "gru-aeroporto",
+        label: "Voo BSB → GRU",
+        waypoints: [
+          [-15.8711, -47.9186],
+          [-19.0, -47.5],
+          [-23.4356, -46.4731],
+        ],
+      },
+    ],
+  },
+
+  "brasil-volta": {
+    center: [-20.0, -47.0],
+    zoom: 5,
+    pois: [
+      { id: "gru-chegada", label: "Aeroporto de Guarulhos (GRU)", lat: -23.4356, lng: -46.4731, day: 21, time: "Noite", description: "Chegada do voo internacional MAD → GRU" },
+      { id: "bsb-chegada", label: "Aeroporto de Brasília (BSB)", lat: -15.8711, lng: -47.9186, day: 21, time: "Noite", description: "Último trecho! Chegada em casa!" },
+    ],
+    trainRoutes: [
+      {
+        fromId: "gru-chegada",
+        toId: "bsb-chegada",
+        label: "Voo GRU → BSB",
+        waypoints: [
+          [-23.4356, -46.4731],
+          [-19.0, -47.5],
+          [-15.8711, -47.9186],
+        ],
+      },
+    ],
+  },
+
   madrid: {
     center: [40.4168, -3.7038],
     zoom: 14,
