@@ -72,9 +72,15 @@ export function TripHeader() {
 
           {/* Route */}
           <div className="flex flex-wrap items-center gap-2 text-sm">
-            <span className="font-mono font-semibold">BSB</span>
+            <span className="flex items-center gap-1.5 font-semibold">
+              <CountryFlag countryCode="BR" name="Brasil" size={16} />
+              <span className="font-mono">BSB</span>
+            </span>
             <span className="text-muted">→</span>
-            <span className="font-mono text-muted">GRU</span>
+            <span className="flex items-center gap-1.5">
+              <CountryFlag countryCode="BR" name="Brasil" size={16} />
+              <span className="font-mono text-muted">GRU</span>
+            </span>
             {cities.map((city, i) => (
               <span key={city.id} className="flex items-center gap-2">
                 <span className="text-muted">→</span>
@@ -85,9 +91,15 @@ export function TripHeader() {
                 {i === cities.length - 1 && (
                   <>
                     <span className="text-muted">→</span>
-                    <span className="font-mono text-muted">GRU</span>
+                    <span className="flex items-center gap-1.5">
+                      <CountryFlag countryCode="BR" name="Brasil" size={16} />
+                      <span className="font-mono text-muted">GRU</span>
+                    </span>
                     <span className="text-muted">→</span>
-                    <span className="font-mono font-semibold">BSB</span>
+                    <span className="flex items-center gap-1.5 font-semibold">
+                      <CountryFlag countryCode="BR" name="Brasil" size={16} />
+                      <span className="font-mono">BSB</span>
+                    </span>
                   </>
                 )}
               </span>
