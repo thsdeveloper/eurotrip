@@ -6,6 +6,7 @@ import { DayCard } from "@/app/components/day-card";
 import { CityNav } from "@/app/components/city-nav";
 import { CountryFlag } from "@/app/components/country-flag";
 import { Plane, Heart, Rocket } from "lucide-react";
+import { MapButton } from "@/app/components/map/map-button";
 
 type Params = { city: string };
 
@@ -77,7 +78,7 @@ export default async function CityPage(props: {
           )}
 
           {/* City Stats */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <div className="rounded-full border border-border bg-card px-3 py-1.5 text-sm">
               <span className="font-bold">{city.days.length}</span>{" "}
               <span className="text-muted">
@@ -98,6 +99,13 @@ export default async function CityPage(props: {
               </span>{" "}
               <span className="text-muted">da viagem</span>
             </div>
+            <MapButton
+              cityId={city.id}
+              cityName={city.name}
+              cityColor={city.color}
+              countryCode={city.countryCode}
+              country={city.country}
+            />
           </div>
         </div>
 

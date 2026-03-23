@@ -49,3 +49,29 @@ html {
 .city-italia { --accent: #27ae60; }
 .city-londres { --accent: #8e44ad; }
 .city-madrid-volta { --accent: #f39c12; }
+
+/* Leaflet overrides */
+.leaflet-popup-content-wrapper {
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+.leaflet-control-attribution {
+  font-size: 10px !important;
+}
+.train-tooltip {
+  background: #0066cc !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 4px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 3px 8px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+}
+.train-tooltip::before {
+  border-top-color: #0066cc !important;
+}
