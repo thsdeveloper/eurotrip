@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { tripData } from "@/app/data/trip";
@@ -9,7 +10,12 @@ import { Menu, X, Home, Wallet, CircleCheckBig, Plane, Heart } from "lucide-reac
 
 export function Sidebar() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     setOpen(false);
@@ -28,30 +34,22 @@ export function Sidebar() {
 
   const activeCityId = pathname === "/" ? null : pathname.slice(1);
 
-  return (
+  const overlay = (
     <>
-      {/* Hamburger button */}
-      <button
-        onClick={() => setOpen(true)}
-        className="flex items-center justify-center rounded-lg border border-border bg-card p-2 transition-colors hover:bg-card-hover"
-        aria-label="Abrir menu de destinos"
-      >
-        <Menu size={20} />
-      </button>
-
       {/* Backdrop */}
       {open && (
         <div
-          className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
+          className="fixed inset-0 z-[9998] bg-black/60 backdrop-blur-sm"
           onClick={() => setOpen(false)}
         />
       )}
 
       {/* Sidebar panel */}
       <div
-        className={`fixed left-0 top-0 z-[70] flex h-full w-80 max-w-[85vw] flex-col bg-background border-r border-border transition-transform duration-300 ${
+        className={`fixed left-0 top-0 z-[9999] flex h-dvh w-80 max-w-[85vw] flex-col border-r border-border transition-transform duration-300 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
+        style={{ backgroundColor: "var(--background)" }}
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b border-border px-4 py-4">
@@ -141,6 +139,22 @@ export function Sidebar() {
           <p className="mt-1">22 Set — 13 Out · {tripData.totalDays} dias · {tripData.totalCountries} países</p>
         </div>
       </div>
+    </>
+  );
+
+  return (
+    <>
+      {/* Hamburger button */}
+      <button
+        onClick={() => setOpen(true)}
+        className="flex items-center justify-center rounded-lg border border-border bg-card p-2 transition-colors hover:bg-card-hover"
+        aria-label="Abrir menu de destinos"
+      >
+        <Menu size={20} />
+      </button>
+
+      {/* Portal: render overlay outside the header stacking context */}
+      {mounted && createPortal(overlay, document.body)}
     </>
   );
 }
