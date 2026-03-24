@@ -49,6 +49,8 @@ html {
 .city-italia { --accent: #27ae60; }
 .city-londres { --accent: #8e44ad; }
 .city-madrid-volta { --accent: #f39c12; }
+.city-brasil-ida { --accent: #009c3b; }
+.city-brasil-volta { --accent: #009c3b; }
 
 /* Leaflet overrides */
 .leaflet-popup-content-wrapper {
