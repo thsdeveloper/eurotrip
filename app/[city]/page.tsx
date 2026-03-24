@@ -3,7 +3,7 @@ import Link from "next/link";
 import { tripData } from "@/app/data/trip";
 import type { Metadata } from "next";
 import { DayCard } from "@/app/components/day-card";
-import { CityNav } from "@/app/components/city-nav";
+import { TripHeader } from "@/app/components/trip-header";
 import { CountryFlag } from "@/app/components/country-flag";
 import { Plane, Heart, Rocket } from "lucide-react";
 import { MapButton } from "@/app/components/map/map-button";
@@ -42,7 +42,7 @@ export default async function CityPage(props: {
 
   return (
     <div className="min-h-screen bg-background font-sans">
-      <CityNav activeCityId={cityId} />
+      <TripHeader />
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <div className="mb-8 flex items-center gap-2 text-sm text-muted">
