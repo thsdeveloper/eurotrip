@@ -4,31 +4,33 @@ import { useState } from "react";
 import { MapPin } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import { MapModal } from "./map-modal";
+import type { City } from "@/app/data/trip";
 
 interface MapButtonProps {
-  cityId: string;
-  cityName: string;
-  cityColor: string;
-  countryCode: string;
-  country: string;
+  cities: City[];
+  currentIndex: number;
 }
 
-export function MapButton({
-  cityId,
-  cityName,
-  cityColor,
-  countryCode,
-  country,
-}: MapButtonProps) {
+export function MapButton({ cities, currentIndex }: MapButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(currentIndex);
+
+  const city = cities[activeIndex];
+  const prev = activeIndex > 0 ? cities[activeIndex - 1] : null;
+  const next = activeIndex < cities.length - 1 ? cities[activeIndex + 1] : null;
+
+  function handleOpen() {
+    setActiveIndex(currentIndex);
+    setIsOpen(true);
+  }
 
   return (
     <>
       <Button
         variant="outline"
         size="sm"
-        onClick={() => setIsOpen(true)}
-        style={{ borderColor: cityColor, color: cityColor }}
+        onClick={handleOpen}
+        style={{ borderColor: cities[currentIndex].color, color: cities[currentIndex].color }}
         className="hover:bg-white/5"
       >
         <MapPin size={14} />
@@ -38,11 +40,16 @@ export function MapButton({
       <MapModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        cityId={cityId}
-        cityName={cityName}
-        cityColor={cityColor}
-        countryCode={countryCode}
-        country={country}
+        cityId={city.id}
+        cityName={city.name}
+        cityColor={city.color}
+        countryCode={city.countryCode}
+        country={city.country}
+        prevCity={prev}
+        nextCity={next}
+        onNavigate={setActiveIndex}
+        prevIndex={activeIndex - 1}
+        nextIndex={activeIndex + 1}
       />
     </>
   );

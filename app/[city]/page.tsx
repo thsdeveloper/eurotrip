@@ -100,11 +100,8 @@ export default async function CityPage(props: {
               <span className="text-muted">da viagem</span>
             </div>
             <MapButton
-              cityId={city.id}
-              cityName={city.name}
-              cityColor={city.color}
-              countryCode={city.countryCode}
-              country={city.country}
+              cities={tripData.cities}
+              currentIndex={cityIndex}
             />
           </div>
         </div>

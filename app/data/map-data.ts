@@ -21,11 +21,25 @@ export interface TrainRoute {
   label?: string; // ex: "TGV", "RER A", "Italo", "Teleférico"
 }
 
+/**
+ * Trajeto de chegada ou saída de um destino.
+ * Waypoints completos da origem ao destino (ex: GRU → MAD).
+ * O mapa NÃO faz zoom para incluir esses pontos — o avião/trem
+ * entra e sai da área visível, criando efeito de chegada/partida.
+ */
+export interface TransportLink {
+  label: string;                    // ex: "Voo GRU → MAD"
+  waypoints: [number, number][];    // rota completa [lat, lng][]
+  type: "flight" | "train";
+}
+
 export interface CityMapData {
   center: [number, number];
   zoom: number;
   pois: MapPOI[];
   trainRoutes?: TrainRoute[];
+  arrival?: TransportLink;
+  departure?: TransportLink;
 }
 
 export const mapData: Record<string, CityMapData> = {
@@ -74,6 +88,29 @@ export const mapData: Record<string, CityMapData> = {
   madrid: {
     center: [40.4168, -3.7038],
     zoom: 14,
+    arrival: {
+      label: "Chegada: Voo GRU → MAD",
+      type: "flight",
+      waypoints: [
+        [-23.4356, -46.4731], // GRU — Guarulhos
+        [-10.0, -35.0],       // Nordeste brasileiro
+        [10.0, -25.0],        // Atlântico equatorial
+        [28.0, -15.0],        // Canárias
+        [36.0, -8.0],         // Sul de Portugal
+        [40.4719, -3.5626],   // MAD — Barajas T4
+      ],
+    },
+    departure: {
+      label: "Saída: Voo MAD → CDG",
+      type: "flight",
+      waypoints: [
+        [40.4719, -3.5626],   // MAD — Barajas T4
+        [42.0, -1.5],         // Norte da Espanha
+        [44.0, 0.5],          // Sul da França
+        [47.0, 1.8],          // Centro da França
+        [49.0097, 2.5479],    // CDG — Paris
+      ],
+    },
     pois: [
       { id: "mad-barajas", label: "Aeroporto Barajas", lat: 40.4719, lng: -3.5626, day: 1, time: "Manhã", description: "Pouso 10:45 — imigração + bagagem" },
       { id: "mad-san-miguel", label: "Mercado de San Miguel", lat: 40.4154, lng: -3.7089, day: 1, time: "Almoço", description: "Jamón ibérico, queijos, croquetas" },
@@ -112,6 +149,30 @@ export const mapData: Record<string, CityMapData> = {
   paris: {
     center: [48.8606, 2.3376],
     zoom: 12,
+    arrival: {
+      label: "Chegada: Voo MAD → CDG",
+      type: "flight",
+      waypoints: [
+        [40.4719, -3.5626],   // MAD — Barajas
+        [42.0, -1.5],         // Norte da Espanha
+        [44.0, 0.5],          // Sul da França
+        [47.0, 1.8],          // Centro da França
+        [49.0097, 2.5479],    // CDG — Charles de Gaulle
+        [48.8616, 2.2886],    // Trocadéro (primeiro POI)
+      ],
+    },
+    departure: {
+      label: "Saída: TGV Paris → Berna",
+      type: "train",
+      waypoints: [
+        [48.8443, 2.3735],    // Gare de Lyon
+        [48.3, 3.0],          // Sens
+        [47.3, 5.0],          // Dijon
+        [46.9, 6.6],          // Frasne / fronteira
+        [46.8031, 7.1510],    // Fribourg
+        [46.9480, 7.4400],    // Berna Hbf (primeiro POI Suíça)
+      ],
+    },
     pois: [
       { id: "par-trocadero", label: "Trocadéro", lat: 48.8616, lng: 2.2886, day: 3, time: "Manhã", description: "Foto clássica com Torre Eiffel" },
       { id: "par-orsay", label: "Musée d'Orsay", lat: 48.8600, lng: 2.3266, day: 3, time: "Tarde", description: "Monet, Renoir, Van Gogh — ~16 EUR" },
@@ -147,6 +208,30 @@ export const mapData: Record<string, CityMapData> = {
   suica: {
     center: [46.75, 7.9],
     zoom: 9,
+    arrival: {
+      label: "Chegada: TGV Paris → Berna",
+      type: "train",
+      waypoints: [
+        [48.8443, 2.3735],    // Gare de Lyon — Paris
+        [47.3, 5.0],          // Dijon
+        [46.9, 6.6],          // Frasne
+        [46.8031, 7.1510],    // Fribourg
+        [46.9480, 7.4400],    // Berna Hbf
+      ],
+    },
+    departure: {
+      label: "Saída: Trem Lucerna → Milão",
+      type: "train",
+      waypoints: [
+        [47.0519, 8.3074],    // Lucerna
+        [47.0486, 8.5450],    // Arth-Goldau
+        [46.8800, 8.6400],    // Erstfeld
+        [46.6641, 8.5879],    // Göschenen (Gotthard norte)
+        [46.5284, 8.6129],    // Airolo (Gotthard sul)
+        [46.1913, 9.0227],    // Bellinzona
+        [45.4847, 9.2045],    // Milano Centrale
+      ],
+    },
     pois: [
       { id: "sui-berna", label: "Estação de Berna", lat: 46.9480, lng: 7.4400, day: 6, time: "Manhã", description: "Chegada TGV de Paris ~4h30" },
       { id: "sui-interlaken", label: "Interlaken Ost", lat: 46.6900, lng: 7.8700, day: 6, time: "Tarde", description: "Check-in — entre dois lagos" },
@@ -259,6 +344,30 @@ export const mapData: Record<string, CityMapData> = {
   italia: {
     center: [43.0, 11.5],
     zoom: 6,
+    arrival: {
+      label: "Chegada: Trem Lucerna → Milão",
+      type: "train",
+      waypoints: [
+        [47.0519, 8.3074],    // Lucerna
+        [46.6641, 8.5879],    // Göschenen
+        [46.5284, 8.6129],    // Airolo
+        [46.1913, 9.0227],    // Bellinzona
+        [45.8340, 9.0285],    // Chiasso (fronteira)
+        [45.4847, 9.2045],    // Milano Centrale
+        [45.4642, 9.1900],    // Duomo di Milano (primeiro POI)
+      ],
+    },
+    departure: {
+      label: "Saída: Voo FCO → LHR",
+      type: "flight",
+      waypoints: [
+        [41.8003, 12.2514],   // FCO — Fiumicino
+        [43.5, 10.0],         // Sobre a Toscana
+        [46.0, 7.0],          // Alpes
+        [48.5, 2.5],          // Norte da França
+        [51.4713, -0.4524],   // LHR — Heathrow T2
+      ],
+    },
     pois: [
       // Milano (Day 10)
       { id: "ita-duomo", label: "Duomo di Milano", lat: 45.4642, lng: 9.1900, day: 10, time: "Manhã", description: "Terraço com vista dos Alpes" },
@@ -324,6 +433,29 @@ export const mapData: Record<string, CityMapData> = {
   londres: {
     center: [51.5074, -0.1278],
     zoom: 13,
+    arrival: {
+      label: "Chegada: Voo FCO → LHR",
+      type: "flight",
+      waypoints: [
+        [41.8003, 12.2514],   // FCO — Fiumicino
+        [43.5, 10.0],         // Toscana
+        [46.0, 7.0],          // Alpes
+        [48.5, 2.5],          // Norte da França
+        [51.4713, -0.4524],   // LHR — Heathrow
+        [51.5007, -0.1246],   // Westminster (primeiro POI)
+      ],
+    },
+    departure: {
+      label: "Saída: Voo LHR → MAD",
+      type: "flight",
+      waypoints: [
+        [51.4723, -0.4889],   // LHR — Heathrow T5
+        [49.0, -1.0],         // Canal da Mancha
+        [46.0, -1.5],         // Oeste da França
+        [43.0, -2.0],         // Norte da Espanha
+        [40.4719, -3.5626],   // MAD — Barajas
+      ],
+    },
     pois: [
       { id: "lon-westminster", label: "Big Ben / Westminster", lat: 51.5007, lng: -0.1246, day: 16, time: "Manhã", description: "Parlamento" },
       { id: "lon-abbey", label: "Abadia de Westminster", lat: 51.4993, lng: -0.1273, day: 16, time: "Manhã", description: "29 GBP/pessoa" },
@@ -348,6 +480,30 @@ export const mapData: Record<string, CityMapData> = {
   "madrid-volta": {
     center: [40.4200, -3.7000],
     zoom: 14,
+    arrival: {
+      label: "Chegada: Voo LHR → MAD",
+      type: "flight",
+      waypoints: [
+        [51.4713, -0.4524],   // LHR — Heathrow
+        [49.0, -1.0],         // Canal da Mancha
+        [46.0, -1.5],         // Oeste da França
+        [43.0, -2.0],         // Norte da Espanha
+        [40.4719, -3.5626],   // MAD — Barajas
+        [40.4251, -3.6903],   // Plaza de Colón (primeiro POI)
+      ],
+    },
+    departure: {
+      label: "Saída: Voo MAD → GRU",
+      type: "flight",
+      waypoints: [
+        [40.4719, -3.5626],   // MAD — Barajas
+        [36.0, -8.0],         // Sul de Portugal
+        [28.0, -15.0],        // Canárias
+        [10.0, -25.0],        // Atlântico equatorial
+        [-10.0, -35.0],       // Nordeste brasileiro
+        [-23.4356, -46.4731], // GRU — Guarulhos
+      ],
+    },
     pois: [
       { id: "madv-colon", label: "Plaza de Colón", lat: 40.4251, lng: -3.6903, day: 20, time: "Manhã", description: "Feriado! Desfile Día de la Hispanidad" },
       { id: "madv-malasana", label: "Malasaña", lat: 40.4266, lng: -3.7050, day: 20, time: "Manhã", description: "Brunch e café" },
