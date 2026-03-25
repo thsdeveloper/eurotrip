@@ -9,15 +9,17 @@ export function CountryFlag({
   name: string;
   size?: 16 | 24 | 32 | 48 | 64;
 }) {
-  const src = `https://flagsapi.com/${countryCode}/flat/${size}.png`;
+  const code = countryCode.toLowerCase();
+  const h = Math.round(size * 0.75);
+  const src = `https://flagcdn.com/${size}x${h}/${code}.png`;
 
   return (
     <Image
       src={src}
       alt={`Bandeira: ${name}`}
       width={size}
-      height={size}
-      className="inline-block"
+      height={h}
+      className="inline-block rounded-sm"
       unoptimized
     />
   );
