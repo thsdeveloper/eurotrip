@@ -64,9 +64,9 @@ export interface TripData {
 export const tripData: TripData = {
   title: "Eurotrip 2026",
   version: "v7",
-  startDate: "22 de Setembro",
+  startDate: "21 de Setembro",
   endDate: "13 de Outubro",
-  totalDays: 22,
+  totalDays: 23,
   totalCountries: 6,
   travelers: [
     { name: "Lidia", emoji: "👩" },
@@ -116,8 +116,8 @@ export const tripData: TripData = {
       flag: "🇧🇷",
       countryCode: "BR",
       icon: "✈",
-      dates: "22/set",
-      nights: 0,
+      dates: "21-22/set",
+      nights: 1,
       color: "#009c3b",
       colorBg: "bg-green-950/30",
       colorBorder: "border-green-500/30",
@@ -126,31 +126,54 @@ export const tripData: TripData = {
       heroImage: "https://images.unsplash.com/photo-1532009877282-3340270e0529?w=1920&q=80",
       days: [
         {
-          date: "22/set",
-          weekday: "Terça",
+          date: "21/set",
+          weekday: "Segunda",
           dayNumber: 1,
-          title: "Partida de Brasília → Guarulhos → Madrid",
+          title: "Brasília → São Paulo",
           activities: [
             {
               time: "Manhã",
               icon: "luggage",
-              title: "Check-in Aeroporto de Brasília (BSB)",
+              title: "Preparação e check final",
               description:
-                "Documentos, passaportes, malas despachadas. Chegar com antecedência!",
-            },
-            {
-              time: "Dia",
-              icon: "plane",
-              title: "Voo BSB → GRU",
-              description:
-                "Voo doméstico Brasília → São Paulo Guarulhos. Conexão para voo internacional.",
+                "Conferir documentos, passaportes, malas despachadas. Última revisão da checklist!",
             },
             {
               time: "Tarde",
-              icon: "clock",
-              title: "Conexão em Guarulhos (GRU)",
+              icon: "plane",
+              title: "Voo BSB → GRU",
               description:
-                "Transição do terminal doméstico para o internacional. Aproveite para comer e fazer compras no duty free.",
+                "Voo doméstico Brasília → São Paulo Guarulhos.",
+            },
+            {
+              time: "Noite",
+              icon: "moon",
+              title: "Pernoite em São Paulo",
+              description:
+                "Descansar perto do aeroporto de Guarulhos para o voo internacional do dia seguinte.",
+              tip: "Durma cedo — o voo internacional é longo e sai à noite!",
+            },
+          ],
+        },
+        {
+          date: "22/set",
+          weekday: "Terça",
+          dayNumber: 2,
+          title: "São Paulo → Madrid",
+          activities: [
+            {
+              time: "Dia",
+              icon: "clock",
+              title: "Dia livre em São Paulo / GRU",
+              description:
+                "Aproveite para descansar ou fazer compras. Check-in no aeroporto com antecedência.",
+            },
+            {
+              time: "Tarde",
+              icon: "luggage",
+              title: "Check-in Aeroporto de Guarulhos (GRU)",
+              description:
+                "Terminal internacional. Aproveite o duty free e alimentação antes do embarque.",
             },
             {
               time: "19:20",
@@ -183,7 +206,7 @@ export const tripData: TripData = {
         {
           date: "23/set",
           weekday: "Quarta",
-          dayNumber: 2,
+          dayNumber: 3,
           title: "Chegada 10:45 + Centro + Prado",
           activities: [
             {
@@ -227,7 +250,7 @@ export const tripData: TripData = {
         {
           date: "24/set",
           weekday: "Quinta",
-          dayNumber: 3,
+          dayNumber: 4,
           title: "Palácio Real + Retiro + Flamenco",
           activities: [
             {
@@ -280,7 +303,7 @@ export const tripData: TripData = {
         {
           date: "25/set",
           weekday: "Sexta",
-          dayNumber: 4,
+          dayNumber: 5,
           title: "Torre Eiffel + Orsay + Cruzeiro Sena",
           activities: [
             {
@@ -309,7 +332,7 @@ export const tripData: TripData = {
         {
           date: "26/set",
           weekday: "Sábado",
-          dayNumber: 5,
+          dayNumber: 6,
           title: "Louvre (manhã) + Disneyland (tarde/noite)",
           activities: [
             {
@@ -340,7 +363,7 @@ export const tripData: TripData = {
         {
           date: "27/set",
           weekday: "Domingo",
-          dayNumber: 6,
+          dayNumber: 7,
           title: "Notre-Dame à Montmartre",
           activities: [
             {
@@ -388,7 +411,7 @@ export const tripData: TripData = {
         {
           date: "28/set",
           weekday: "Segunda",
-          dayNumber: 7,
+          dayNumber: 8,
           title: "Paris → Interlaken de trem",
           activities: [
             {
@@ -415,7 +438,7 @@ export const tripData: TripData = {
         {
           date: "29/set",
           weekday: "Terça",
-          dayNumber: 8,
+          dayNumber: 9,
           title: "Lauterbrunnen + Mürren",
           activities: [
             {
@@ -438,7 +461,7 @@ export const tripData: TripData = {
         {
           date: "30/set",
           weekday: "Quarta",
-          dayNumber: 9,
+          dayNumber: 10,
           title: "Jungfraujoch Top of Europe",
           activities: [
             {
@@ -468,7 +491,7 @@ export const tripData: TripData = {
         {
           date: "01/out",
           weekday: "Quinta",
-          dayNumber: 10,
+          dayNumber: 11,
           title: "Trem cênico → Lucerna → Milão",
           activities: [
             {
@@ -519,7 +542,7 @@ export const tripData: TripData = {
         {
           date: "02/out",
           weekday: "Sexta",
-          dayNumber: 11,
+          dayNumber: 12,
           title: "Milão Completa",
           activities: [
             {
@@ -549,7 +572,7 @@ export const tripData: TripData = {
         {
           date: "03/out",
           weekday: "Sábado",
-          dayNumber: 12,
+          dayNumber: 13,
           title: "Trem → Florença",
           activities: [
             {
@@ -577,7 +600,7 @@ export const tripData: TripData = {
         {
           date: "04/out",
           weekday: "Domingo",
-          dayNumber: 13,
+          dayNumber: 14,
           title: "Florença Renascimento",
           activities: [
             {
@@ -605,7 +628,7 @@ export const tripData: TripData = {
         {
           date: "05/out",
           weekday: "Segunda",
-          dayNumber: 14,
+          dayNumber: 15,
           title: "Florença + Trem Roma",
           activities: [
             {
@@ -633,7 +656,7 @@ export const tripData: TripData = {
         {
           date: "06/out",
           weekday: "Terça",
-          dayNumber: 15,
+          dayNumber: 16,
           title: "Roma Antiga",
           activities: [
             {
@@ -661,7 +684,7 @@ export const tripData: TripData = {
         {
           date: "07/out",
           weekday: "Quarta",
-          dayNumber: 16,
+          dayNumber: 17,
           title: "Vaticano",
           activities: [
             {
@@ -707,7 +730,7 @@ export const tripData: TripData = {
         {
           date: "08/out",
           weekday: "Quinta",
-          dayNumber: 17,
+          dayNumber: 18,
           title: "Chegada + Westminster",
           activities: [
             {
@@ -741,7 +764,7 @@ export const tripData: TripData = {
         {
           date: "09/out",
           weekday: "Sexta",
-          dayNumber: 18,
+          dayNumber: 19,
           title: "Realeza + Museus + Teatro",
           activities: [
             {
@@ -768,7 +791,7 @@ export const tripData: TripData = {
         {
           date: "10/out",
           weekday: "Sábado",
-          dayNumber: 19,
+          dayNumber: 20,
           title: "Tower + Mercados",
           activities: [
             {
@@ -795,7 +818,7 @@ export const tripData: TripData = {
         {
           date: "11/out",
           weekday: "Domingo",
-          dayNumber: 20,
+          dayNumber: 21,
           title: "Dia Livre + Despedida",
           activities: [
             {
@@ -840,7 +863,7 @@ export const tripData: TripData = {
         {
           date: "12/out",
           weekday: "Segunda",
-          dayNumber: 21,
+          dayNumber: 22,
           title: "Feriado! Dia Nacional da Espanha",
           activities: [
             {
@@ -887,7 +910,7 @@ export const tripData: TripData = {
         {
           date: "13/out",
           weekday: "Terça",
-          dayNumber: 22,
+          dayNumber: 23,
           title: "Volta ao Brasil — Madrid → Guarulhos → Brasília",
           activities: [
             {
