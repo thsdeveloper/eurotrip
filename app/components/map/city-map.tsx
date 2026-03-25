@@ -488,7 +488,7 @@ export default function CityMap({ cityId, color }: CityMapProps) {
   const mapInstanceRef = useRef<L.Map | null>(null);
   const markersRef = useRef<L.Marker[]>([]);
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedAcc, setSelectedAcc] = useState<Accommodation | null>(null);
 
   const data = mapData[cityId];
