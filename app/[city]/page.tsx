@@ -82,18 +82,6 @@ export default async function CityPage(props: {
       )}
 
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <div className="mb-8 flex items-center gap-2 text-sm text-muted">
-          <Link href="/" className="hover:text-foreground transition-colors">
-            Eurotrip 2026
-          </Link>
-          <span>→</span>
-          <span className="flex items-center gap-1.5 text-foreground font-medium">
-            <CountryFlag countryCode={city.countryCode} name={city.country} size={16} />
-            {city.name}
-          </span>
-        </div>
-
         {/* City Info */}
         <div className="mb-10 flex flex-col gap-4">
           {!city.heroImage && (
