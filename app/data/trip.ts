@@ -67,8 +67,8 @@ export const tripData: TripData = {
   title: "Eurotrip 2026",
   version: "v7",
   startDate: "21 de Setembro",
-  endDate: "13 de Outubro",
-  totalDays: 23,
+  endDate: "14 de Outubro",
+  totalDays: 24,
   totalCountries: 6,
   travelers: [
     { name: "Lidia", emoji: "👩", color: "#e74c3c" },
@@ -85,19 +85,19 @@ export const tripData: TripData = {
   flightOut: {
     label: "INTERNACIONAL IDA",
     route: "GRU → MAD",
-    time: "22/set 19:20 → 23/set 10:45",
-    details: "Iberia Direto | 31.250 Avios × 4 = 125.000 Avios",
+    time: "23/set 14:10 → 24/set 05:35",
+    details: "IB0268 Iberia Direto | Duração 11h25 | 31.250 Avios × 4 = 125.000 Avios",
   },
   flightBack: {
     label: "INTERNACIONAL VOLTA",
     route: "MAD → GRU",
-    time: "13/out",
+    time: "14/out",
     details: "Iberia (Avios)",
   },
   flightDomesticBack: {
     label: "DOMÉSTICO VOLTA",
     route: "GRU → BSB",
-    time: "13/out",
+    time: "14/out",
     details: "Voo doméstico — chegada em casa!",
   },
   bookingAlerts: [
@@ -118,8 +118,8 @@ export const tripData: TripData = {
       flag: "🇧🇷",
       countryCode: "BR",
       icon: "✈",
-      dates: "21-22/set",
-      nights: 1,
+      dates: "21-23/set",
+      nights: 2,
       color: "#009c3b",
       colorBg: "bg-green-950/30",
       colorBorder: "border-green-500/30",
@@ -161,29 +161,44 @@ export const tripData: TripData = {
           date: "22/set",
           weekday: "Terça",
           dayNumber: 2,
-          title: "São Paulo → Madrid",
+          title: "Dia livre em São Paulo",
           activities: [
             {
               time: "Dia",
-              icon: "clock",
-              title: "Dia livre em São Paulo / GRU",
+              icon: "footprints",
+              title: "Dia livre em São Paulo",
               description:
-                "Aproveite para descansar ou fazer compras. Check-in no aeroporto com antecedência.",
+                "Aproveite para descansar, passear ou fazer compras. Último dia no Brasil!",
             },
             {
-              time: "Tarde",
+              time: "Noite",
+              icon: "moon",
+              title: "Pernoite em São Paulo",
+              description:
+                "Descansar para o voo internacional de amanhã.",
+            },
+          ],
+        },
+        {
+          date: "23/set",
+          weekday: "Quarta",
+          dayNumber: 3,
+          title: "São Paulo → Madrid",
+          activities: [
+            {
+              time: "Manhã",
               icon: "luggage",
               title: "Check-in Aeroporto de Guarulhos (GRU)",
               description:
-                "Terminal internacional. Aproveite o duty free e alimentação antes do embarque.",
+                "Terminal internacional. Chegar com 3h de antecedência. Aproveite o duty free.",
             },
             {
-              time: "19:20",
+              time: "14:10",
               icon: "plane",
-              title: "Voo GRU → MAD (Iberia)",
+              title: "Voo GRU → MAD (Iberia IB0268)",
               description:
-                "Voo noturno direto São Paulo → Madrid. 31.250 Avios por pessoa. Chegada 10:45 do dia seguinte.",
-              tip: "Voo noturno — tente dormir no avião para chegar descansado!",
+                "Voo direto São Paulo → Madrid. Duração 11h25. 31.250 Avios por pessoa. Chegada 05:35 do dia seguinte.",
+              tip: "Voo longo — leve travesseiro de pescoço, fone e entretenimento!",
             },
           ],
         },
@@ -196,7 +211,7 @@ export const tripData: TripData = {
       flag: "🇪🇸",
       countryCode: "ES",
       icon: "◉",
-      dates: "23-24/set",
+      dates: "24-25/set",
       nights: 2,
       color: "#e74c3c",
       colorBg: "bg-red-950/30",
@@ -206,17 +221,17 @@ export const tripData: TripData = {
       heroImage: "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1920&q=80",
       days: [
         {
-          date: "23/set",
-          weekday: "Quarta",
-          dayNumber: 3,
-          title: "Chegada 10:45 + Centro + Prado",
+          date: "24/set",
+          weekday: "Quinta",
+          dayNumber: 4,
+          title: "Chegada 05:35 + Centro + Prado",
           activities: [
             {
-              time: "Manhã",
+              time: "05:35",
               icon: "plane",
-              title: "Pouso em Barajas 10:45",
+              title: "Pouso em Barajas 05:35 (IB0268)",
               description:
-                "Imigração + bagagem (~1h). Hotel perto de Sol/Gran Vía/La Latina. Voo noturno cansa — devagar!",
+                "Imigração + bagagem (~1h). Hotel perto de Sol/Gran Vía/La Latina. Descanse um pouco antes de sair!",
             },
             {
               time: "Almoço",
@@ -250,9 +265,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "24/set",
-          weekday: "Quinta",
-          dayNumber: 4,
+          date: "25/set",
+          weekday: "Sexta",
+          dayNumber: 5,
           title: "Palácio Real + Retiro + Flamenco",
           activities: [
             {
@@ -293,7 +308,7 @@ export const tripData: TripData = {
       flag: "🇫🇷",
       countryCode: "FR",
       icon: "★",
-      dates: "25-27/set",
+      dates: "26-28/set",
       nights: 3,
       color: "#3498db",
       colorBg: "bg-blue-950/30",
@@ -303,9 +318,9 @@ export const tripData: TripData = {
       heroImage: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1920&q=80",
       days: [
         {
-          date: "25/set",
-          weekday: "Sexta",
-          dayNumber: 5,
+          date: "26/set",
+          weekday: "Sábado",
+          dayNumber: 6,
           title: "Torre Eiffel + Orsay + Cruzeiro Sena",
           activities: [
             {
@@ -332,9 +347,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "26/set",
-          weekday: "Sábado",
-          dayNumber: 6,
+          date: "27/set",
+          weekday: "Domingo",
+          dayNumber: 7,
           title: "Louvre (manhã) + Disneyland (tarde/noite)",
           activities: [
             {
@@ -363,9 +378,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "27/set",
-          weekday: "Domingo",
-          dayNumber: 7,
+          date: "28/set",
+          weekday: "Segunda",
+          dayNumber: 8,
           title: "Notre-Dame à Montmartre",
           activities: [
             {
@@ -401,7 +416,7 @@ export const tripData: TripData = {
       flag: "🇨🇭",
       countryCode: "CH",
       icon: "▲",
-      dates: "28/set-01/out",
+      dates: "29/set-02/out",
       nights: 4,
       color: "#e74c3c",
       colorBg: "bg-emerald-950/30",
@@ -411,9 +426,9 @@ export const tripData: TripData = {
       heroImage: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=1920&q=80",
       days: [
         {
-          date: "28/set",
-          weekday: "Segunda",
-          dayNumber: 8,
+          date: "29/set",
+          weekday: "Terça",
+          dayNumber: 9,
           title: "Paris → Interlaken de trem",
           activities: [
             {
@@ -438,9 +453,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "29/set",
-          weekday: "Terça",
-          dayNumber: 9,
+          date: "30/set",
+          weekday: "Quarta",
+          dayNumber: 10,
           title: "Lauterbrunnen + Mürren",
           activities: [
             {
@@ -461,9 +476,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "30/set",
-          weekday: "Quarta",
-          dayNumber: 10,
+          date: "01/out",
+          weekday: "Quinta",
+          dayNumber: 11,
           title: "Jungfraujoch Top of Europe",
           activities: [
             {
@@ -491,9 +506,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "01/out",
-          weekday: "Quinta",
-          dayNumber: 11,
+          date: "02/out",
+          weekday: "Sexta",
+          dayNumber: 12,
           title: "Trem cênico → Lucerna → Milão",
           activities: [
             {
@@ -532,7 +547,7 @@ export const tripData: TripData = {
       flag: "🇮🇹",
       countryCode: "IT",
       icon: "✠",
-      dates: "02-07/out",
+      dates: "03-08/out",
       nights: 6,
       color: "#27ae60",
       colorBg: "bg-green-950/30",
@@ -542,9 +557,9 @@ export const tripData: TripData = {
       heroImage: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1920&q=80",
       days: [
         {
-          date: "02/out",
-          weekday: "Sexta",
-          dayNumber: 12,
+          date: "03/out",
+          weekday: "Sábado",
+          dayNumber: 13,
           title: "Milão Completa",
           activities: [
             {
@@ -572,9 +587,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "03/out",
-          weekday: "Sábado",
-          dayNumber: 13,
+          date: "04/out",
+          weekday: "Domingo",
+          dayNumber: 14,
           title: "Trem → Florença",
           activities: [
             {
@@ -600,9 +615,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "04/out",
-          weekday: "Domingo",
-          dayNumber: 14,
+          date: "05/out",
+          weekday: "Segunda",
+          dayNumber: 15,
           title: "Florença Renascimento",
           activities: [
             {
@@ -628,9 +643,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "05/out",
-          weekday: "Segunda",
-          dayNumber: 15,
+          date: "06/out",
+          weekday: "Terça",
+          dayNumber: 16,
           title: "Florença + Trem Roma",
           activities: [
             {
@@ -656,9 +671,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "06/out",
-          weekday: "Terça",
-          dayNumber: 16,
+          date: "07/out",
+          weekday: "Quarta",
+          dayNumber: 17,
           title: "Roma Antiga",
           activities: [
             {
@@ -684,9 +699,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "07/out",
-          weekday: "Quarta",
-          dayNumber: 17,
+          date: "08/out",
+          weekday: "Quinta",
+          dayNumber: 18,
           title: "Vaticano",
           activities: [
             {
@@ -720,7 +735,7 @@ export const tripData: TripData = {
       flag: "🇬🇧",
       countryCode: "GB",
       icon: "♛",
-      dates: "08-11/out",
+      dates: "09-12/out",
       nights: 4,
       color: "#8e44ad",
       colorBg: "bg-purple-950/30",
@@ -730,9 +745,9 @@ export const tripData: TripData = {
       heroImage: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1920&q=80",
       days: [
         {
-          date: "08/out",
-          weekday: "Quinta",
-          dayNumber: 18,
+          date: "09/out",
+          weekday: "Sexta",
+          dayNumber: 19,
           title: "Chegada + Westminster",
           activities: [
             {
@@ -764,9 +779,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "09/out",
-          weekday: "Sexta",
-          dayNumber: 19,
+          date: "10/out",
+          weekday: "Sábado",
+          dayNumber: 20,
           title: "Realeza + Museus + Teatro",
           activities: [
             {
@@ -791,9 +806,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "10/out",
-          weekday: "Sábado",
-          dayNumber: 20,
+          date: "11/out",
+          weekday: "Domingo",
+          dayNumber: 21,
           title: "Tower + Mercados",
           activities: [
             {
@@ -818,9 +833,9 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "11/out",
-          weekday: "Domingo",
-          dayNumber: 21,
+          date: "12/out",
+          weekday: "Segunda",
+          dayNumber: 22,
           title: "Dia Livre + Despedida",
           activities: [
             {
@@ -853,7 +868,7 @@ export const tripData: TripData = {
       flag: "🇪🇸",
       countryCode: "ES",
       icon: "☀",
-      dates: "12/out",
+      dates: "13/out",
       nights: 1,
       color: "#f39c12",
       colorBg: "bg-amber-950/30",
@@ -863,17 +878,17 @@ export const tripData: TripData = {
       heroImage: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=1920&q=80",
       days: [
         {
-          date: "12/out",
-          weekday: "Segunda",
-          dayNumber: 22,
-          title: "Feriado! Dia Nacional da Espanha",
+          date: "13/out",
+          weekday: "Terça",
+          dayNumber: 23,
+          title: "Dia Livre em Madrid",
           activities: [
             {
               time: "Manhã",
               icon: "flag",
-              title: "Día de la Hispanidad!",
+              title: "Dia tranquilo em Madrid",
               description:
-                "Desfile militar e demonstração aérea na Praça de Colón. Ou dia tranquilo: Malasaña, brunch, revisitar favoritos.",
+                "Malasaña, brunch, revisitar favoritos. Último dia na Europa!",
             },
             {
               time: "Tarde",
@@ -881,7 +896,7 @@ export const tripData: TripData = {
               title: "Compras finais",
               description:
                 "Jamón ibérico a vácuo, azeite, vinhos. El Corte Inglés. Chaveirinhos!",
-              tip: "12/out feriado = alguns comércios fecham. El Corte Inglés geralmente abre!",
+              tip: "El Corte Inglés é boa opção para compras de última hora!",
             },
             {
               time: "Noite",
@@ -900,7 +915,7 @@ export const tripData: TripData = {
       flag: "🇧🇷",
       countryCode: "BR",
       icon: "🏠",
-      dates: "13/out",
+      dates: "14/out",
       nights: 0,
       color: "#009c3b",
       colorBg: "bg-green-950/30",
@@ -910,9 +925,9 @@ export const tripData: TripData = {
       heroImage: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=1920&q=80",
       days: [
         {
-          date: "13/out",
-          weekday: "Terça",
-          dayNumber: 23,
+          date: "14/out",
+          weekday: "Quarta",
+          dayNumber: 24,
           title: "Volta ao Brasil — Madrid → Guarulhos → Brasília",
           activities: [
             {
@@ -920,7 +935,7 @@ export const tripData: TripData = {
               icon: "shopping-bag",
               title: "Duty Free Aeroporto de Barajas",
               description:
-                "Últimas compras antes de embarcar. 21 dias, 5 países, 8 cidades!",
+                "Últimas compras antes de embarcar. 24 dias, 6 países, 8 cidades!",
             },
             {
               time: "Dia",
