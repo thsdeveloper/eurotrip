@@ -66,7 +66,7 @@ export const tripData: TripData = {
   version: "v7",
   startDate: "22 de Setembro",
   endDate: "13 de Outubro",
-  totalDays: 21,
+  totalDays: 22,
   totalCountries: 6,
   travelers: [
     { name: "Lidia", emoji: "👩" },
@@ -128,7 +128,7 @@ export const tripData: TripData = {
         {
           date: "22/set",
           weekday: "Terça",
-          dayNumber: 0,
+          dayNumber: 1,
           title: "Partida de Brasília → Guarulhos → Madrid",
           activities: [
             {
@@ -183,7 +183,7 @@ export const tripData: TripData = {
         {
           date: "23/set",
           weekday: "Quarta",
-          dayNumber: 1,
+          dayNumber: 2,
           title: "Chegada 10:45 + Centro + Prado",
           activities: [
             {
@@ -227,7 +227,7 @@ export const tripData: TripData = {
         {
           date: "24/set",
           weekday: "Quinta",
-          dayNumber: 2,
+          dayNumber: 3,
           title: "Palácio Real + Retiro + Flamenco",
           activities: [
             {
@@ -280,7 +280,7 @@ export const tripData: TripData = {
         {
           date: "25/set",
           weekday: "Sexta",
-          dayNumber: 3,
+          dayNumber: 4,
           title: "Torre Eiffel + Orsay + Cruzeiro Sena",
           activities: [
             {
@@ -309,7 +309,7 @@ export const tripData: TripData = {
         {
           date: "26/set",
           weekday: "Sábado",
-          dayNumber: 4,
+          dayNumber: 5,
           title: "Louvre (manhã) + Disneyland (tarde/noite)",
           activities: [
             {
@@ -340,7 +340,7 @@ export const tripData: TripData = {
         {
           date: "27/set",
           weekday: "Domingo",
-          dayNumber: 5,
+          dayNumber: 6,
           title: "Notre-Dame à Montmartre",
           activities: [
             {
@@ -388,7 +388,7 @@ export const tripData: TripData = {
         {
           date: "28/set",
           weekday: "Segunda",
-          dayNumber: 6,
+          dayNumber: 7,
           title: "Paris → Interlaken de trem",
           activities: [
             {
@@ -415,7 +415,7 @@ export const tripData: TripData = {
         {
           date: "29/set",
           weekday: "Terça",
-          dayNumber: 7,
+          dayNumber: 8,
           title: "Lauterbrunnen + Mürren",
           activities: [
             {
@@ -438,7 +438,7 @@ export const tripData: TripData = {
         {
           date: "30/set",
           weekday: "Quarta",
-          dayNumber: 8,
+          dayNumber: 9,
           title: "Jungfraujoch Top of Europe",
           activities: [
             {
@@ -468,7 +468,7 @@ export const tripData: TripData = {
         {
           date: "01/out",
           weekday: "Quinta",
-          dayNumber: 9,
+          dayNumber: 10,
           title: "Trem cênico → Lucerna → Milão",
           activities: [
             {
@@ -519,7 +519,7 @@ export const tripData: TripData = {
         {
           date: "02/out",
           weekday: "Sexta",
-          dayNumber: 10,
+          dayNumber: 11,
           title: "Milão Completa",
           activities: [
             {
@@ -549,7 +549,7 @@ export const tripData: TripData = {
         {
           date: "03/out",
           weekday: "Sábado",
-          dayNumber: 11,
+          dayNumber: 12,
           title: "Trem → Florença",
           activities: [
             {
@@ -577,7 +577,7 @@ export const tripData: TripData = {
         {
           date: "04/out",
           weekday: "Domingo",
-          dayNumber: 12,
+          dayNumber: 13,
           title: "Florença Renascimento",
           activities: [
             {
@@ -605,7 +605,7 @@ export const tripData: TripData = {
         {
           date: "05/out",
           weekday: "Segunda",
-          dayNumber: 13,
+          dayNumber: 14,
           title: "Florença + Trem Roma",
           activities: [
             {
@@ -633,7 +633,7 @@ export const tripData: TripData = {
         {
           date: "06/out",
           weekday: "Terça",
-          dayNumber: 14,
+          dayNumber: 15,
           title: "Roma Antiga",
           activities: [
             {
@@ -661,7 +661,7 @@ export const tripData: TripData = {
         {
           date: "07/out",
           weekday: "Quarta",
-          dayNumber: 15,
+          dayNumber: 16,
           title: "Vaticano",
           activities: [
             {
@@ -707,7 +707,7 @@ export const tripData: TripData = {
         {
           date: "08/out",
           weekday: "Quinta",
-          dayNumber: 16,
+          dayNumber: 17,
           title: "Chegada + Westminster",
           activities: [
             {
@@ -741,7 +741,7 @@ export const tripData: TripData = {
         {
           date: "09/out",
           weekday: "Sexta",
-          dayNumber: 17,
+          dayNumber: 18,
           title: "Realeza + Museus + Teatro",
           activities: [
             {
@@ -768,7 +768,7 @@ export const tripData: TripData = {
         {
           date: "10/out",
           weekday: "Sábado",
-          dayNumber: 18,
+          dayNumber: 19,
           title: "Tower + Mercados",
           activities: [
             {
@@ -795,7 +795,7 @@ export const tripData: TripData = {
         {
           date: "11/out",
           weekday: "Domingo",
-          dayNumber: 19,
+          dayNumber: 20,
           title: "Dia Livre + Despedida",
           activities: [
             {
@@ -840,7 +840,7 @@ export const tripData: TripData = {
         {
           date: "12/out",
           weekday: "Segunda",
-          dayNumber: 20,
+          dayNumber: 21,
           title: "Feriado! Dia Nacional da Espanha",
           activities: [
             {
@@ -887,7 +887,7 @@ export const tripData: TripData = {
         {
           date: "13/out",
           weekday: "Terça",
-          dayNumber: 21,
+          dayNumber: 22,
           title: "Volta ao Brasil — Madrid → Guarulhos → Brasília",
           activities: [
             {
