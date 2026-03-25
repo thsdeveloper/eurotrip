@@ -18,7 +18,7 @@ interface DayCardProps {
 }
 
 export function DayCard({ day, color, cityName, heroImage, pois, accommodations, transportLinks }: DayCardProps) {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   const [selectedActivity, setSelectedActivity] = useState<number | null>(null);
 
   return (
