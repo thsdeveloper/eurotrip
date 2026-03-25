@@ -11,12 +11,13 @@ interface DayCardProps {
   day: Day;
   color: string;
   cityName: string;
+  heroImage?: string;
   pois: MapPOI[];
   accommodations: Accommodation[];
   transportLinks: TransportLink[];
 }
 
-export function DayCard({ day, color, cityName, pois, accommodations, transportLinks }: DayCardProps) {
+export function DayCard({ day, color, cityName, heroImage, pois, accommodations, transportLinks }: DayCardProps) {
   const [expanded, setExpanded] = useState(true);
   const [selectedActivity, setSelectedActivity] = useState<number | null>(null);
 
@@ -104,6 +105,7 @@ export function DayCard({ day, color, cityName, pois, accommodations, transportL
           day={day}
           cityName={cityName}
           cityColor={color}
+          heroImage={heroImage}
           pois={pois}
           accommodations={accommodations}
           transportLinks={transportLinks}

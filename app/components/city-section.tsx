@@ -43,6 +43,7 @@ export function CitySection({ city }: { city: City }) {
               day={day}
               color={city.color}
               cityName={city.name}
+              heroImage={city.heroImage}
               pois={pois}
               accommodations={accommodations}
               transportLinks={transportLinks}

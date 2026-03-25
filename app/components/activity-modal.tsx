@@ -119,6 +119,7 @@ interface ActivityModalProps {
   day: Day;
   cityName: string;
   cityColor: string;
+  heroImage?: string;
   pois: MapPOI[];
   accommodations: Accommodation[];
   transportLinks: TransportLink[];
@@ -134,6 +135,7 @@ export function ActivityModal({
   day,
   cityName,
   cityColor,
+  heroImage,
   pois,
   accommodations,
   transportLinks,
@@ -241,58 +243,71 @@ export function ActivityModal({
 
       {/* Content */}
       <div className="flex-1 overflow-y-auto">
-        <div className="mx-auto max-w-2xl px-4 py-6 sm:px-6">
-          {/* Hero section */}
-          <div className="mb-6">
-            {/* Category badge */}
-            <div className="mb-4 flex items-center gap-2">
-              <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${category.bgColor} ${category.color}`}>
-                <TripIcon name={activity.icon} size={14} />
-                {category.label}
-              </span>
-              {activity.cost && (
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400">
-                  <Wallet size={14} />
-                  {activity.cost}
+        {/* Hero banner with background image */}
+        <div className="relative h-48 sm:h-56 w-full overflow-hidden">
+          {heroImage ? (
+            <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={heroImage}
+                alt={cityName}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-black/30" />
+            </>
+          ) : (
+            <div
+              className="absolute inset-0"
+              style={{ backgroundColor: `${cityColor}20` }}
+            />
+          )}
+          <div className="absolute inset-0 flex items-end">
+            <div className="mx-auto w-full max-w-2xl px-4 pb-5 sm:px-6">
+              {/* Category badge */}
+              <div className="mb-3 flex flex-wrap items-center gap-2">
+                <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium backdrop-blur-sm ${category.bgColor} ${category.color}`}>
+                  <TripIcon name={activity.icon} size={14} />
+                  {category.label}
                 </span>
-              )}
-            </div>
-
-            {/* Title */}
-            <h1 className="text-2xl font-bold sm:text-3xl mb-2">{activity.title}</h1>
-
-            {/* Time & Date */}
-            <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
-              <span className="flex items-center gap-1.5">
-                <Clock size={14} />
-                {activity.time}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Calendar size={14} />
-                {day.date} ({day.weekday})
-              </span>
-              {matchingPOI && (
-                <a
-                  href={getGoogleMapsUrl(matchingPOI)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-blue-400 hover:text-blue-300 transition-colors"
-                >
-                  <MapPin size={14} />
-                  Ver no mapa
-                  <ExternalLink size={12} />
-                </a>
-              )}
+                {activity.cost && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 backdrop-blur-sm px-3 py-1 text-xs font-medium text-emerald-400">
+                    <Wallet size={14} />
+                    {activity.cost}
+                  </span>
+                )}
+              </div>
+              {/* Title */}
+              <h1 className="text-2xl font-bold text-white drop-shadow-lg sm:text-3xl mb-1.5">
+                {activity.title}
+              </h1>
+              {/* Time & Date */}
+              <div className="flex flex-wrap items-center gap-3 text-sm text-white/70">
+                <span className="flex items-center gap-1.5">
+                  <Clock size={14} />
+                  {activity.time}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Calendar size={14} />
+                  {day.date} ({day.weekday})
+                </span>
+                {matchingPOI && (
+                  <a
+                    href={getGoogleMapsUrl(matchingPOI)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-blue-300 hover:text-blue-200 transition-colors"
+                  >
+                    <MapPin size={14} />
+                    Ver no mapa
+                    <ExternalLink size={12} />
+                  </a>
+                )}
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Main icon display */}
-          <div
-            className="mb-6 flex h-32 items-center justify-center rounded-2xl"
-            style={{ backgroundColor: `${cityColor}15` }}
-          >
-            <TripIcon name={activity.icon} size={64} className="opacity-60" />
-          </div>
+        <div className="mx-auto max-w-2xl px-4 py-6 sm:px-6">
 
           {/* Description */}
           {activity.description && (

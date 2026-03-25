@@ -154,6 +154,7 @@ export default async function CityPage(props: {
               day={day}
               color={city.color}
               cityName={city.name}
+              heroImage={city.heroImage}
               pois={pois}
               accommodations={accommodations}
               transportLinks={transportLinks}
