@@ -6,7 +6,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { tripData } from "@/app/data/trip";
 import { CountryFlag } from "./country-flag";
-import { Menu, X, Home, Wallet, CircleCheckBig, Plane, Heart } from "lucide-react";
+import { Menu, X, Home, Wallet, CircleCheckBig, Plane, Heart, LogOut } from "lucide-react";
+import { logout } from "@/app/login/actions";
 
 export function Sidebar() {
   const [open, setOpen] = useState(false);
@@ -130,13 +131,22 @@ export function Sidebar() {
         </nav>
 
         {/* Footer */}
-        <div className="border-t border-border px-4 py-3 text-xs text-muted">
+        <div className="shrink-0 border-t border-border px-4 py-3 text-xs text-muted" style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
           <p className="flex items-center gap-1.5">
             <span>Lidia & Pedro</span>
             <Heart size={10} className="text-red-400 fill-red-400" />
             <span>Joquebede & Thiago</span>
           </p>
           <p className="mt-1">22 Set — 13 Out · {tripData.totalDays} dias · {tripData.totalCountries} países</p>
+          <form action={logout} className="mt-3">
+            <button
+              type="submit"
+              className="flex items-center gap-2 w-full rounded-lg px-3 py-2 text-sm text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors"
+            >
+              <LogOut size={16} />
+              <span>Sair</span>
+            </button>
+          </form>
         </div>
       </div>
     </>
