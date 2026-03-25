@@ -74,6 +74,13 @@ export default async function CityPage(props: {
                     {city.country} — {city.dates} — {city.nights}{" "}
                     {city.nights === 1 ? "noite" : "noites"}
                   </p>
+                  <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-white/60">
+                    <span>{city.days.length} {city.days.length === 1 ? "dia" : "dias"}</span>
+                    <span>·</span>
+                    <span>{city.days.reduce((sum, d) => sum + d.activities.length, 0)} atividades</span>
+                    <span>·</span>
+                    <span>Dias {city.days[0].dayNumber}{city.days.length > 1 && `-${city.days[city.days.length - 1].dayNumber}`} da viagem</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -85,48 +92,35 @@ export default async function CityPage(props: {
         {/* City Info */}
         <div className="mb-10 flex flex-col gap-4">
           {!city.heroImage && (
-            <div className="flex items-center gap-4">
-              <CountryFlag countryCode={city.countryCode} name={city.country} size={64} />
-              <div>
-                <h1 className="text-3xl font-bold sm:text-4xl">{city.name}</h1>
-                <p className="text-muted">
-                  {city.country} — {city.dates} — {city.nights}{" "}
-                  {city.nights === 1 ? "noite" : "noites"}
-                </p>
+            <>
+              <div className="flex items-center gap-4">
+                <CountryFlag countryCode={city.countryCode} name={city.country} size={64} />
+                <div>
+                  <h1 className="text-3xl font-bold sm:text-4xl">{city.name}</h1>
+                  <p className="text-muted">
+                    {city.country} — {city.dates} — {city.nights}{" "}
+                    {city.nights === 1 ? "noite" : "noites"}
+                  </p>
+                  <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
+                    <span>{city.days.length} {city.days.length === 1 ? "dia" : "dias"}</span>
+                    <span>·</span>
+                    <span>{city.days.reduce((sum, d) => sum + d.activities.length, 0)} atividades</span>
+                    <span>·</span>
+                    <span>Dias {city.days[0].dayNumber}{city.days.length > 1 && `-${city.days[city.days.length - 1].dayNumber}`} da viagem</span>
+                  </div>
+                </div>
               </div>
-            </div>
+            </>
           )}
 
-          {city.transport && (
-            <div className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm">
-              <Rocket size={16} className="text-muted" />
-              <span className="text-muted">Deslocamento:</span>
-              <span className="font-medium">{city.transport}</span>
-            </div>
-          )}
-
-          {/* City Stats */}
           <div className="flex flex-wrap items-center gap-3">
-            <div className="rounded-full border border-border bg-card px-3 py-1.5 text-sm">
-              <span className="font-bold">{city.days.length}</span>{" "}
-              <span className="text-muted">
-                {city.days.length === 1 ? "dia" : "dias"}
-              </span>
-            </div>
-            <div className="rounded-full border border-border bg-card px-3 py-1.5 text-sm">
-              <span className="font-bold">
-                {city.days.reduce((sum, d) => sum + d.activities.length, 0)}
-              </span>{" "}
-              <span className="text-muted">atividades</span>
-            </div>
-            <div className="rounded-full border border-border bg-card px-3 py-1.5 text-sm">
-              <span className="font-bold">
-                Dias {city.days[0].dayNumber}
-                {city.days.length > 1 &&
-                  `-${city.days[city.days.length - 1].dayNumber}`}
-              </span>{" "}
-              <span className="text-muted">da viagem</span>
-            </div>
+            {city.transport && (
+              <div className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm">
+                <Rocket size={16} className="text-muted" />
+                <span className="text-muted">Deslocamento:</span>
+                <span className="font-medium">{city.transport}</span>
+              </div>
+            )}
             <MapButton
               cities={tripData.cities}
               currentIndex={cityIndex}
