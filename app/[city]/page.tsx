@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import { DayCard } from "@/app/components/day-card";
 import { TripHeader } from "@/app/components/trip-header";
 import { CountryFlag } from "@/app/components/country-flag";
-import { Plane, Heart, Rocket } from "lucide-react";
+import { Plane, Heart, Rocket, ChevronLeft, ChevronRight } from "lucide-react";
 import { MapButton } from "@/app/components/map/map-button";
 
 type Params = { city: string };
@@ -145,57 +145,44 @@ export default async function CityPage(props: {
         </div>
 
         {/* Prev / Next Navigation */}
-        <div className="mt-12 flex items-stretch gap-4">
+        <div className="mt-12 flex items-center gap-3">
           {prev ? (
             <Link
               href={`/${prev.id}`}
-              className="flex flex-1 items-center gap-3 rounded-xl border border-border bg-card p-5 transition-colors hover:bg-card-hover"
+              className="group flex flex-1 items-center gap-3 rounded-lg px-4 py-3 transition-colors hover:bg-card"
             >
-              <span className="text-muted">←</span>
-              <div>
-                <p className="text-xs text-muted">Anterior</p>
-                <p className="flex items-center gap-1.5 font-semibold">
-                  <CountryFlag countryCode={prev.countryCode} name={prev.country} size={16} />
-                  {prev.name}
-                </p>
-              </div>
+              <ChevronLeft size={16} className="text-muted group-hover:text-foreground transition-colors shrink-0" />
+              <CountryFlag countryCode={prev.countryCode} name={prev.country} size={24} />
+              <span className="text-sm text-muted group-hover:text-foreground transition-colors truncate">{prev.name}</span>
             </Link>
           ) : (
             <Link
               href="/"
-              className="flex flex-1 items-center gap-3 rounded-xl border border-border bg-card p-5 transition-colors hover:bg-card-hover"
+              className="group flex flex-1 items-center gap-3 rounded-lg px-4 py-3 transition-colors hover:bg-card"
             >
-              <span className="text-muted">←</span>
-              <div>
-                <p className="text-xs text-muted">Voltar</p>
-                <p className="font-semibold">Visão Geral</p>
-              </div>
+              <ChevronLeft size={16} className="text-muted group-hover:text-foreground transition-colors shrink-0" />
+              <span className="text-sm text-muted group-hover:text-foreground transition-colors">Visão Geral</span>
             </Link>
           )}
+
+          <div className="h-4 w-px bg-border shrink-0" />
+
           {next ? (
             <Link
               href={`/${next.id}`}
-              className="flex flex-1 items-center justify-end gap-3 rounded-xl border border-border bg-card p-5 text-right transition-colors hover:bg-card-hover"
+              className="group flex flex-1 items-center justify-end gap-3 rounded-lg px-4 py-3 transition-colors hover:bg-card"
             >
-              <div>
-                <p className="text-xs text-muted">Próximo</p>
-                <p className="flex items-center gap-1.5 font-semibold">
-                  <CountryFlag countryCode={next.countryCode} name={next.country} size={16} />
-                  {next.name}
-                </p>
-              </div>
-              <span className="text-muted">→</span>
+              <span className="text-sm text-muted group-hover:text-foreground transition-colors truncate">{next.name}</span>
+              <CountryFlag countryCode={next.countryCode} name={next.country} size={24} />
+              <ChevronRight size={16} className="text-muted group-hover:text-foreground transition-colors shrink-0" />
             </Link>
           ) : (
             <Link
               href="/"
-              className="flex flex-1 items-center justify-end gap-3 rounded-xl border border-border bg-card p-5 text-right transition-colors hover:bg-card-hover"
+              className="group flex flex-1 items-center justify-end gap-3 rounded-lg px-4 py-3 transition-colors hover:bg-card"
             >
-              <div>
-                <p className="text-xs text-muted">Voltar</p>
-                <p className="font-semibold">Visão Geral</p>
-              </div>
-              <span className="text-muted">→</span>
+              <span className="text-sm text-muted group-hover:text-foreground transition-colors">Visão Geral</span>
+              <ChevronRight size={16} className="text-muted group-hover:text-foreground transition-colors shrink-0" />
             </Link>
           )}
         </div>
