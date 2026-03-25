@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { tripData } from "@/app/data/trip";
 import { CountryFlag } from "./country-flag";
-import { Menu, X, Home, Wallet, CircleCheckBig, Plane, Heart, LogOut } from "lucide-react";
+import { Menu, X, Home, Wallet, CircleCheckBig, Plane, Heart, LogOut, Users } from "lucide-react";
 import { logout } from "@/app/login/actions";
 
 export function Sidebar() {
@@ -114,6 +114,17 @@ export function Sidebar() {
 
           <div className="my-2 mx-3 h-px bg-border" />
 
+          <Link
+            href="/viajantes"
+            className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${
+              pathname === "/viajantes"
+                ? "bg-white/10 text-white"
+                : "text-muted hover:bg-white/5 hover:text-foreground"
+            }`}
+          >
+            <Users size={18} />
+            <span>Viajantes</span>
+          </Link>
           <Link
             href="/#budget"
             className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-muted hover:bg-white/5 hover:text-foreground transition-colors"
