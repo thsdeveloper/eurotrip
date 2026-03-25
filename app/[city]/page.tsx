@@ -90,9 +90,9 @@ export default async function CityPage(props: {
         </div>
       )}
 
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 py-5 sm:px-6 lg:px-8">
         {/* City Info */}
-        <div className="mb-10 flex flex-col gap-4">
+        <div className="mb-6 flex flex-col gap-4">
           {!city.heroImage && (
             <>
               <div className="flex items-center gap-4">
