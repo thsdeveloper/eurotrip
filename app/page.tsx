@@ -7,11 +7,13 @@ import { BudgetTable } from "@/app/components/budget-table";
 import { TripChecklist } from "@/app/components/trip-checklist";
 import { Plane, Heart } from "lucide-react";
 import { CountryFlag } from "@/app/components/country-flag";
+import { Travelers } from "@/app/components/travelers";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="min-h-screen bg-background font-sans">
       <TripHeader />
+      <Travelers />
       <Countdown />
       <BookingAlerts />
 

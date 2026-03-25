@@ -43,6 +43,8 @@ export interface Flight {
 export interface Traveler {
   name: string;
   emoji: string;
+  email?: string;
+  color: string;
 }
 
 export interface TripData {
@@ -69,10 +71,10 @@ export const tripData: TripData = {
   totalDays: 23,
   totalCountries: 6,
   travelers: [
-    { name: "Lidia", emoji: "👩" },
-    { name: "Pedro", emoji: "👨" },
-    { name: "Joquebede", emoji: "👩" },
-    { name: "Thiago", emoji: "👨" },
+    { name: "Lidia", emoji: "👩", color: "#e74c3c" },
+    { name: "Pedro", emoji: "👨", email: "pedroignacio16@gmail.com", color: "#3498db" },
+    { name: "Joquebede", emoji: "👩", email: "joquebetedias@gmail.com", color: "#2ecc71" },
+    { name: "Thiago", emoji: "👨", email: "ths.pereira@gmail.com", color: "#8e44ad" },
   ],
   flightDomesticOut: {
     label: "DOMÉSTICO IDA",
