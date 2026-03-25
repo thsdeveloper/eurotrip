@@ -30,6 +30,7 @@ export interface City {
   colorText: string;
   days: Day[];
   transport?: string;
+  heroImage?: string;
 }
 
 export interface Flight {
@@ -122,6 +123,7 @@ export const tripData: TripData = {
       colorBorder: "border-green-500/30",
       colorText: "text-green-400",
       transport: "BSB → GRU → MAD",
+      heroImage: "https://images.unsplash.com/photo-1532009877282-3340270e0529?w=1920&q=80",
       days: [
         {
           date: "22/set",
@@ -176,6 +178,7 @@ export const tripData: TripData = {
       colorBorder: "border-red-500/30",
       colorText: "text-red-400",
       transport: "31.250 Avios por pessoa",
+      heroImage: "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1920&q=80",
       days: [
         {
           date: "23/set",
@@ -272,6 +275,7 @@ export const tripData: TripData = {
       colorBorder: "border-blue-500/30",
       colorText: "text-blue-400",
       transport: "Voo MAD-CDG ~2h",
+      heroImage: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1920&q=80",
       days: [
         {
           date: "25/set",
@@ -379,6 +383,7 @@ export const tripData: TripData = {
       colorBorder: "border-emerald-500/30",
       colorText: "text-emerald-400",
       transport: "TGV Paris-Berna ~4h30 + trem ~50min",
+      heroImage: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=1920&q=80",
       days: [
         {
           date: "28/set",
@@ -509,6 +514,7 @@ export const tripData: TripData = {
       colorBorder: "border-green-500/30",
       colorText: "text-green-400",
       transport: "Trem via Lucerna",
+      heroImage: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=1920&q=80",
       days: [
         {
           date: "02/out",
@@ -696,6 +702,7 @@ export const tripData: TripData = {
       colorBorder: "border-purple-500/30",
       colorText: "text-purple-400",
       transport: "Voo FCO-LHR ~2h30",
+      heroImage: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1920&q=80",
       days: [
         {
           date: "08/out",
@@ -828,6 +835,7 @@ export const tripData: TripData = {
       colorBorder: "border-amber-500/30",
       colorText: "text-amber-400",
       transport: "Voo LHR-MAD ~2h",
+      heroImage: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=1920&q=80",
       days: [
         {
           date: "12/out",
@@ -874,6 +882,7 @@ export const tripData: TripData = {
       colorBorder: "border-green-500/30",
       colorText: "text-green-400",
       transport: "MAD → GRU → BSB",
+      heroImage: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=1920&q=80",
       days: [
         {
           date: "13/out",

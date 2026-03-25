@@ -43,6 +43,36 @@ export default async function CityPage(props: {
   return (
     <div className="min-h-screen bg-background font-sans">
       <TripHeader />
+
+      {/* Hero Banner */}
+      {city.heroImage && (
+        <div className="relative h-64 sm:h-80 md:h-96 w-full overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={city.heroImage}
+            alt={`${city.name}, ${city.country}`}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+          <div className="absolute inset-0 flex items-end">
+            <div className="mx-auto w-full max-w-6xl px-4 pb-8 sm:px-6 lg:px-8">
+              <div className="flex items-center gap-4">
+                <CountryFlag countryCode={city.countryCode} name={city.country} size={64} />
+                <div>
+                  <h1 className="text-3xl font-bold text-white drop-shadow-lg sm:text-5xl">
+                    {city.name}
+                  </h1>
+                  <p className="text-white/80 text-lg drop-shadow-md">
+                    {city.country} — {city.dates} — {city.nights}{" "}
+                    {city.nights === 1 ? "noite" : "noites"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <div className="mb-8 flex items-center gap-2 text-sm text-muted">
@@ -56,18 +86,20 @@ export default async function CityPage(props: {
           </span>
         </div>
 
-        {/* City Header */}
+        {/* City Info */}
         <div className="mb-10 flex flex-col gap-4">
-          <div className="flex items-center gap-4">
-            <CountryFlag countryCode={city.countryCode} name={city.country} size={64} />
-            <div>
-              <h1 className="text-3xl font-bold sm:text-4xl">{city.name}</h1>
-              <p className="text-muted">
-                {city.country} — {city.dates} — {city.nights}{" "}
-                {city.nights === 1 ? "noite" : "noites"}
-              </p>
+          {!city.heroImage && (
+            <div className="flex items-center gap-4">
+              <CountryFlag countryCode={city.countryCode} name={city.country} size={64} />
+              <div>
+                <h1 className="text-3xl font-bold sm:text-4xl">{city.name}</h1>
+                <p className="text-muted">
+                  {city.country} — {city.dates} — {city.nights}{" "}
+                  {city.nights === 1 ? "noite" : "noites"}
+                </p>
+              </div>
             </div>
-          </div>
+          )}
 
           {city.transport && (
             <div className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm">
