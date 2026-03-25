@@ -9,9 +9,10 @@ import type { City } from "@/app/data/trip";
 interface MapButtonProps {
   cities: City[];
   currentIndex: number;
+  inline?: boolean;
 }
 
-export function MapButton({ cities, currentIndex }: MapButtonProps) {
+export function MapButton({ cities, currentIndex, inline }: MapButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(currentIndex);
 
@@ -26,16 +27,27 @@ export function MapButton({ cities, currentIndex }: MapButtonProps) {
 
   return (
     <>
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={handleOpen}
-        style={{ borderColor: cities[currentIndex].color, color: cities[currentIndex].color }}
-        className="hover:bg-white/5"
-      >
-        <MapPin size={14} />
-        Ver no Mapa
-      </Button>
+      {inline ? (
+        <button
+          onClick={handleOpen}
+          className="inline-flex items-center gap-1 text-xs hover:underline cursor-pointer transition-colors"
+          style={{ color: cities[currentIndex].color }}
+        >
+          <MapPin size={12} />
+          Ver no Mapa
+        </button>
+      ) : (
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleOpen}
+          style={{ borderColor: cities[currentIndex].color, color: cities[currentIndex].color }}
+          className="hover:bg-white/5"
+        >
+          <MapPin size={14} />
+          Ver no Mapa
+        </Button>
+      )}
 
       <MapModal
         isOpen={isOpen}

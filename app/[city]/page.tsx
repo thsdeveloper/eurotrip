@@ -80,6 +80,8 @@ export default async function CityPage(props: {
                     <span>{city.days.reduce((sum, d) => sum + d.activities.length, 0)} atividades</span>
                     <span>·</span>
                     <span>Dias {city.days[0].dayNumber}{city.days.length > 1 && `-${city.days[city.days.length - 1].dayNumber}`} da viagem</span>
+                    <span>·</span>
+                    <MapButton cities={tripData.cities} currentIndex={cityIndex} inline />
                   </div>
                 </div>
               </div>
@@ -107,25 +109,14 @@ export default async function CityPage(props: {
                     <span>{city.days.reduce((sum, d) => sum + d.activities.length, 0)} atividades</span>
                     <span>·</span>
                     <span>Dias {city.days[0].dayNumber}{city.days.length > 1 && `-${city.days[city.days.length - 1].dayNumber}`} da viagem</span>
+                    <span>·</span>
+                    <MapButton cities={tripData.cities} currentIndex={cityIndex} inline />
                   </div>
                 </div>
               </div>
             </>
           )}
 
-          <div className="flex flex-wrap items-center gap-3">
-            {city.transport && (
-              <div className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm">
-                <Rocket size={16} className="text-muted" />
-                <span className="text-muted">Deslocamento:</span>
-                <span className="font-medium">{city.transport}</span>
-              </div>
-            )}
-            <MapButton
-              cities={tripData.cities}
-              currentIndex={cityIndex}
-            />
-          </div>
         </div>
 
         {/* Days */}
