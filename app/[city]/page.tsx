@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { tripData } from "@/app/data/trip";
+import { mapData } from "@/app/data/map-data";
 import type { Metadata } from "next";
 import { DayCard } from "@/app/components/day-card";
 import { TripHeader } from "@/app/components/trip-header";
@@ -34,6 +35,13 @@ export default async function CityPage(props: {
   if (cityIndex === -1) notFound();
 
   const city = tripData.cities[cityIndex];
+  const cityMapData = mapData[cityId as keyof typeof mapData];
+  const pois = cityMapData?.pois ?? [];
+  const accommodations = cityMapData?.accommodations ?? [];
+  const transportLinks = [
+    ...(cityMapData?.arrival ? [cityMapData.arrival] : []),
+    ...(cityMapData?.departure ? [cityMapData.departure] : []),
+  ];
   const prev = cityIndex > 0 ? tripData.cities[cityIndex - 1] : null;
   const next =
     cityIndex < tripData.cities.length - 1
@@ -141,7 +149,15 @@ export default async function CityPage(props: {
         {/* Days */}
         <div className="flex flex-col gap-6">
           {city.days.map((day) => (
-            <DayCard key={day.dayNumber} day={day} color={city.color} />
+            <DayCard
+              key={day.dayNumber}
+              day={day}
+              color={city.color}
+              cityName={city.name}
+              pois={pois}
+              accommodations={accommodations}
+              transportLinks={transportLinks}
+            />
           ))}
         </div>
 
