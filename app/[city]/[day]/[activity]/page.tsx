@@ -77,7 +77,6 @@ export default async function ActivityPage(props: {
 
   const cityMapData = mapData[cityId as keyof typeof mapData];
   const pois = cityMapData?.pois ?? [];
-  const accommodations = cityMapData?.accommodations ?? [];
   const transportLinks = [
     ...(cityMapData?.arrival ? [cityMapData.arrival] : []),
     ...(cityMapData?.departure ? [cityMapData.departure] : []),
@@ -163,7 +162,6 @@ export default async function ActivityPage(props: {
           cityName={city.name}
           cityColor={city.color}
           pois={pois}
-          accommodations={accommodations}
           transportLinks={transportLinks}
         />
 

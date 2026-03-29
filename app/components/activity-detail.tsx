@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { TripIcon } from "./trip-icon";
 import type { Activity, Day } from "@/app/data/trip";
-import type { MapPOI, Accommodation, TransportLink } from "@/app/data/map-data";
+import type { MapPOI, TransportLink } from "@/app/data/map-data";
 
 /** Categorize an activity by its icon for richer display */
 function getActivityCategory(icon: string) {
@@ -114,7 +114,6 @@ interface ActivityDetailProps {
   cityName: string;
   cityColor: string;
   pois: MapPOI[];
-  accommodations: Accommodation[];
   transportLinks: TransportLink[];
 }
 
@@ -124,7 +123,6 @@ export function ActivityDetail({
   cityName,
   cityColor,
   pois,
-  accommodations,
   transportLinks,
 }: ActivityDetailProps) {
   const category = getActivityCategory(activity.icon);
@@ -141,12 +139,6 @@ export function ActivityDetail({
       )
     : null;
 
-  const relevantAccommodation = accommodations.find((acc) => {
-    const checkInDay = parseInt(acc.checkIn.split("/")[0]);
-    const checkOutDay = parseInt(acc.checkOut.split("/")[0]);
-    const currentDay = parseInt(day.date.split("/")[0]);
-    return currentDay >= checkInDay && currentDay < checkOutDay;
-  });
 
   return (
     <div className="rounded-xl border border-border bg-card overflow-hidden">
@@ -286,50 +278,6 @@ export function ActivityDetail({
             </div>
           )}
 
-          {/* Accommodation card */}
-          {relevantAccommodation && (
-            <div className="rounded-lg border border-border bg-background/50 p-4">
-              <h4 className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold">
-                <span className="text-sm">
-                  {relevantAccommodation.type === "airbnb" ? "🏠" : relevantAccommodation.type === "hotel" ? "🏨" : "🛏️"}
-                </span>
-                Hospedagem
-              </h4>
-              <p className="text-sm font-medium">{relevantAccommodation.label}</p>
-              {relevantAccommodation.neighborhood && (
-                <p className="mt-1 text-[11px] text-muted">
-                  <MapPin size={11} className="inline mr-1" />
-                  {relevantAccommodation.neighborhood}
-                </p>
-              )}
-              <div className="mt-2 flex flex-wrap gap-1.5 text-[11px]">
-                <span className="rounded bg-white/5 px-2 py-0.5">
-                  Check-in: {relevantAccommodation.checkIn}
-                </span>
-                <span className="rounded bg-white/5 px-2 py-0.5">
-                  Check-out: {relevantAccommodation.checkOut}
-                </span>
-                <span className="rounded bg-white/5 px-2 py-0.5">
-                  {relevantAccommodation.nights} {relevantAccommodation.nights === 1 ? "noite" : "noites"}
-                </span>
-              </div>
-              {relevantAccommodation.pricePerNight && (
-                <p className="mt-2 text-[11px] text-emerald-400 font-medium">
-                  {relevantAccommodation.pricePerNight}/noite
-                  {relevantAccommodation.totalPrice && ` · Total: ${relevantAccommodation.totalPrice}`}
-                </p>
-              )}
-              {relevantAccommodation.amenities && relevantAccommodation.amenities.length > 0 && (
-                <div className="mt-2 flex flex-wrap gap-1">
-                  {relevantAccommodation.amenities.map((a) => (
-                    <span key={a} className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] text-muted">
-                      {a}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
         </div>
 
         {/* User tip */}
