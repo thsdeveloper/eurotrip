@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { mapData, type MapPOI, type TrainRoute, type TransportLink, type Accommodation } from "@/app/data/map-data";
+import type { CityMapData, MapPOI, TrainRoute, TransportLink, Accommodation } from "@/app/data/types";
 
 interface CityMapProps {
   cityId: string;
   color: string;
+  mapData: Record<string, CityMapData>;
 }
 
 function createMarkerIcon(color: string, index: number) {
@@ -483,7 +484,7 @@ function AccommodationModal({ acc, onClose }: { acc: Accommodation; onClose: () 
   );
 }
 
-export default function CityMap({ cityId, color }: CityMapProps) {
+export default function CityMap({ cityId, color, mapData }: CityMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const markersRef = useRef<L.Marker[]>([]);

@@ -4,15 +4,17 @@ import { useState } from "react";
 import { MapPin } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import { MapModal } from "./map-modal";
-import type { City } from "@/app/data/trip";
+import type { City } from "@/app/data/types";
+import type { CityMapData } from "@/app/data/types";
 
 interface MapButtonProps {
   cities: City[];
   currentIndex: number;
   inline?: boolean;
+  mapData: Record<string, CityMapData>;
 }
 
-export function MapButton({ cities, currentIndex, inline }: MapButtonProps) {
+export function MapButton({ cities, currentIndex, inline, mapData }: MapButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(currentIndex);
 
@@ -62,6 +64,7 @@ export function MapButton({ cities, currentIndex, inline }: MapButtonProps) {
         onNavigate={setActiveIndex}
         prevIndex={activeIndex - 1}
         nextIndex={activeIndex + 1}
+        mapData={mapData}
       />
     </>
   );

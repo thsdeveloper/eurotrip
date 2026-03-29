@@ -1,10 +1,14 @@
 "use client";
 
-import { checklist } from "@/app/data/trip";
 import { useState, useEffect } from "react";
 import { CircleCheckBig } from "lucide-react";
+import type { ChecklistItem } from "@/app/lib/data";
 
-export function TripChecklist() {
+interface TripChecklistProps {
+  checklist: ChecklistItem[];
+}
+
+export function TripChecklist({ checklist }: TripChecklistProps) {
   const [checked, setChecked] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
@@ -26,7 +30,7 @@ export function TripChecklist() {
       acc[item.category].push(item);
       return acc;
     },
-    {} as Record<string, typeof checklist>
+    {} as Record<string, ChecklistItem[]>
   );
 
   const total = checklist.length;

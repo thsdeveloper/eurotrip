@@ -1,4 +1,4 @@
-import type { City } from "@/app/data/trip";
+import type { City } from "@/app/data/types";
 import { DayCard } from "./day-card";
 import { Rocket } from "lucide-react";
 import { CountryFlag } from "./country-flag";

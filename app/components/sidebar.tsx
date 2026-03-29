@@ -4,12 +4,18 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { tripData } from "@/app/data/trip";
+import type { City } from "@/app/data/types";
 import { CountryFlag } from "./country-flag";
 import { Menu, X, Home, Wallet, CircleCheckBig, Plane, Heart, LogOut, Users } from "lucide-react";
 import { logout } from "@/app/login/actions";
 
-export function Sidebar() {
+interface SidebarProps {
+  cities: City[];
+  totalDays: number;
+  totalCountries: number;
+}
+
+export function Sidebar({ cities, totalDays, totalCountries }: SidebarProps) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
@@ -86,7 +92,7 @@ export function Sidebar() {
             Destinos
           </p>
 
-          {tripData.cities.map((city) => (
+          {cities.map((city) => (
             <Link
               key={city.id}
               href={`/${city.id}`}
@@ -148,7 +154,7 @@ export function Sidebar() {
             <Heart size={10} className="text-red-400 fill-red-400" />
             <span>Joquebede & Thiago</span>
           </p>
-          <p className="mt-1">22 Set — 15 Out · {tripData.totalDays} dias · {tripData.totalCountries} países</p>
+          <p className="mt-1">22 Set — 15 Out · {totalDays} dias · {totalCountries} países</p>
           <form action={logout} className="mt-3">
             <button
               type="submit"

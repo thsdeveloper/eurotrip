@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { BedDouble, X, MapPin, Calendar, Users, Lightbulb, Wifi, ChefHat, Wind, WashingMachine, Star } from "lucide-react";
-import type { Accommodation } from "@/app/data/map-data";
+import type { Accommodation } from "@/app/data/types";
 
 interface AccommodationButtonProps {
   accommodations: Accommodation[];

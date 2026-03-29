@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { tripData } from "@/app/data/trip";
+import { getTripData, getChecklist } from "@/app/lib/data";
 import { TripHeader } from "@/app/components/trip-header";
 import { Countdown } from "@/app/components/countdown";
 import { BookingAlerts } from "@/app/components/booking-alerts";
@@ -7,7 +7,13 @@ import { BudgetTable } from "@/app/components/budget-table";
 import { TripChecklist } from "@/app/components/trip-checklist";
 import { Plane, Heart } from "lucide-react";
 import { CountryFlag } from "@/app/components/country-flag";
-export default function Home() {
+
+export default async function Home() {
+  const [tripData, checklist] = await Promise.all([
+    getTripData(),
+    getChecklist(),
+  ]);
+
   return (
     <div className="min-h-screen bg-background font-sans">
       <TripHeader />
@@ -84,7 +90,7 @@ export default function Home() {
       </section>
 
       <BudgetTable />
-      <TripChecklist />
+      <TripChecklist checklist={checklist} />
 
       {/* Footer */}
       <footer className="border-t border-border py-8 text-center text-xs text-muted">

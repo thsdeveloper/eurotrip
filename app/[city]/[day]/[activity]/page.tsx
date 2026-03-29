@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { tripData } from "@/app/data/trip";
-import { mapData } from "@/app/data/map-data";
+import { getTripData, getMapData } from "@/app/lib/data";
 import type { Metadata } from "next";
 import { TripHeader } from "@/app/components/trip-header";
 import { CountryFlag } from "@/app/components/country-flag";
@@ -10,20 +9,8 @@ import { ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react";
 
 type Params = { city: string; day: string; activity: string };
 
-// Build a flat list of all activities across the entire trip for prev/next
-const allActivities = tripData.cities.flatMap((city) =>
-  city.days.flatMap((day, dayIdx) =>
-    day.activities.map((activity, actIdx) => ({
-      city,
-      day,
-      daySlug: `dia-${dayIdx + 1}`,
-      activitySlug: `atividade-${actIdx + 1}`,
-      activity,
-    }))
-  )
-);
-
-export function generateStaticParams(): Params[] {
+export async function generateStaticParams(): Promise<Params[]> {
+  const tripData = await getTripData();
   const params: Params[] = [];
   for (const city of tripData.cities) {
     for (let d = 0; d < city.days.length; d++) {
@@ -43,6 +30,7 @@ export async function generateMetadata(props: {
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { city: cityId, day: daySlug, activity: actSlug } = await props.params;
+  const tripData = await getTripData();
   const city = tripData.cities.find((c) => c.id === cityId);
   if (!city) return { title: "Não encontrado" };
 
@@ -64,6 +52,11 @@ export default async function ActivityPage(props: {
   params: Promise<Params>;
 }) {
   const { city: cityId, day: daySlug, activity: actSlug } = await props.params;
+  const [tripData, mapDataResult] = await Promise.all([
+    getTripData(),
+    getMapData(),
+  ]);
+
   const city = tripData.cities.find((c) => c.id === cityId);
   if (!city) notFound();
 
@@ -75,14 +68,26 @@ export default async function ActivityPage(props: {
   const activity = day.activities[actIndex];
   if (!activity || isNaN(actIndex)) notFound();
 
-  const cityMapData = mapData[cityId as keyof typeof mapData];
+  const cityMapData = mapDataResult[cityId];
   const pois = cityMapData?.pois ?? [];
   const transportLinks = [
     ...(cityMapData?.arrival ? [cityMapData.arrival] : []),
     ...(cityMapData?.departure ? [cityMapData.departure] : []),
   ];
 
-  // Find prev/next activity in the global list
+  // Build flat list of all activities for prev/next navigation
+  const allActivities = tripData.cities.flatMap((c) =>
+    c.days.flatMap((d, dIdx) =>
+      d.activities.map((a, aIdx) => ({
+        city: c,
+        day: d,
+        daySlug: `dia-${dIdx + 1}`,
+        activitySlug: `atividade-${aIdx + 1}`,
+        activity: a,
+      }))
+    )
+  );
+
   const globalIndex = allActivities.findIndex(
     (a) =>
       a.city.id === cityId &&

@@ -16,8 +16,8 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import { TripIcon } from "./trip-icon";
-import type { Activity, Day } from "@/app/data/trip";
-import type { MapPOI, TransportLink } from "@/app/data/map-data";
+import type { Activity, Day } from "@/app/data/types";
+import type { MapPOI, TransportLink } from "@/app/data/types";
 
 /** Categorize an activity by its icon for richer display */
 function getActivityCategory(icon: string) {

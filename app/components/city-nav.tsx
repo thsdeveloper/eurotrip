@@ -1,16 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { tripData } from "@/app/data/trip";
 import { useState, useEffect } from "react";
 import { Home, Wallet, CircleCheckBig } from "lucide-react";
 import { CountryFlag } from "./country-flag";
+import type { City } from "@/app/data/types";
 
 interface CityNavProps {
   activeCityId?: string;
+  cities: City[];
 }
 
-export function CityNav({ activeCityId }: CityNavProps) {
+export function CityNav({ activeCityId, cities }: CityNavProps) {
   const [scrollActive, setScrollActive] = useState("");
 
   const isHomePage = !activeCityId;
@@ -29,7 +30,7 @@ export function CityNav({ activeCityId }: CityNavProps) {
       { rootMargin: "-20% 0px -60% 0px" }
     );
 
-    for (const city of tripData.cities) {
+    for (const city of cities) {
       const el = document.getElementById(city.id);
       if (el) observer.observe(el);
     }
@@ -39,7 +40,7 @@ export function CityNav({ activeCityId }: CityNavProps) {
     if (checklist) observer.observe(checklist);
 
     return () => observer.disconnect();
-  }, [isHomePage]);
+  }, [isHomePage, cities]);
 
   const active = activeCityId ?? scrollActive;
 
@@ -56,7 +57,7 @@ export function CityNav({ activeCityId }: CityNavProps) {
           <span className="hidden sm:inline">Início</span>
         </Link>
         <div className="mx-1 h-4 w-px bg-border" />
-        {tripData.cities.map((city) => (
+        {cities.map((city) => (
           <Link
             key={city.id}
             href={`/${city.id}`}

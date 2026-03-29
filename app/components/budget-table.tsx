@@ -1,14 +1,17 @@
-import { budgetItems } from "@/app/data/trip";
+import { getBudgetItems } from "@/app/lib/data";
+import type { BudgetItem } from "@/app/lib/data";
 import { Wallet } from "lucide-react";
 
-export function BudgetTable() {
+export async function BudgetTable() {
+  const budgetItems = await getBudgetItems();
+
   const grouped = budgetItems.reduce(
     (acc, item) => {
       if (!acc[item.city]) acc[item.city] = [];
       acc[item.city].push(item);
       return acc;
     },
-    {} as Record<string, typeof budgetItems>
+    {} as Record<string, BudgetItem[]>
   );
 
   return (

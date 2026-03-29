@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { tripData } from "@/app/data/trip";
+import { getTripData, getMapData } from "@/app/lib/data";
 import type { Metadata } from "next";
 import { DayCard } from "@/app/components/day-card";
 import { TripHeader } from "@/app/components/trip-header";
@@ -8,11 +8,11 @@ import { CountryFlag } from "@/app/components/country-flag";
 import { Plane, Heart, ChevronLeft, ChevronRight } from "lucide-react";
 import { MapButton } from "@/app/components/map/map-button";
 import { AccommodationButton } from "@/app/components/accommodation-button";
-import { mapData } from "@/app/data/map-data";
 
 type Params = { city: string };
 
-export function generateStaticParams(): Params[] {
+export async function generateStaticParams(): Promise<Params[]> {
+  const tripData = await getTripData();
   return tripData.cities.map((city) => ({ city: city.id }));
 }
 
@@ -20,6 +20,7 @@ export async function generateMetadata(props: {
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { city: cityId } = await props.params;
+  const tripData = await getTripData();
   const city = tripData.cities.find((c) => c.id === cityId);
   if (!city) return { title: "Não encontrado" };
   return {
@@ -32,6 +33,11 @@ export default async function CityPage(props: {
   params: Promise<Params>;
 }) {
   const { city: cityId } = await props.params;
+  const [tripData, mapDataResult] = await Promise.all([
+    getTripData(),
+    getMapData(),
+  ]);
+
   const cityIndex = tripData.cities.findIndex((c) => c.id === cityId);
   if (cityIndex === -1) notFound();
 
@@ -41,7 +47,7 @@ export default async function CityPage(props: {
     cityIndex < tripData.cities.length - 1
       ? tripData.cities[cityIndex + 1]
       : null;
-  const accommodations = mapData[cityId as keyof typeof mapData]?.accommodations ?? [];
+  const accommodations = mapDataResult[cityId]?.accommodations ?? [];
 
   return (
     <div className="min-h-screen bg-background font-sans">
@@ -76,7 +82,7 @@ export default async function CityPage(props: {
                     <span>·</span>
                     <span>Dias {city.days[0].dayNumber}{city.days.length > 1 && `-${city.days[city.days.length - 1].dayNumber}`} da viagem</span>
                     <span>·</span>
-                    <MapButton cities={tripData.cities} currentIndex={cityIndex} inline />
+                    <MapButton cities={tripData.cities} currentIndex={cityIndex} inline mapData={mapDataResult} />
                     {accommodations.length > 0 && (
                       <>
                         <span>·</span>
@@ -111,7 +117,7 @@ export default async function CityPage(props: {
                     <span>·</span>
                     <span>Dias {city.days[0].dayNumber}{city.days.length > 1 && `-${city.days[city.days.length - 1].dayNumber}`} da viagem</span>
                     <span>·</span>
-                    <MapButton cities={tripData.cities} currentIndex={cityIndex} inline />
+                    <MapButton cities={tripData.cities} currentIndex={cityIndex} inline mapData={mapDataResult} />
                     {accommodations.length > 0 && (
                       <>
                         <span>·</span>

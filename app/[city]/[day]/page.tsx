@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { tripData } from "@/app/data/trip";
+import { getTripData } from "@/app/lib/data";
 import type { Metadata } from "next";
 import { TripHeader } from "@/app/components/trip-header";
 import { CountryFlag } from "@/app/components/country-flag";
@@ -9,18 +9,8 @@ import { ChevronLeft, ChevronRight, ArrowLeft, Lightbulb } from "lucide-react";
 
 type Params = { city: string; day: string };
 
-// Build a flat list of all days across all cities for prev/next navigation
-const allDays = tripData.cities.flatMap((city, cityIdx) =>
-  city.days.map((day, dayIdx) => ({
-    city,
-    cityIndex: cityIdx,
-    day,
-    dayIndex: dayIdx,
-    slug: `dia-${dayIdx + 1}`,
-  }))
-);
-
-export function generateStaticParams(): Params[] {
+export async function generateStaticParams(): Promise<Params[]> {
+  const tripData = await getTripData();
   const params: Params[] = [];
   for (const city of tripData.cities) {
     for (let i = 0; i < city.days.length; i++) {
@@ -34,6 +24,7 @@ export async function generateMetadata(props: {
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { city: cityId, day: daySlug } = await props.params;
+  const tripData = await getTripData();
   const city = tripData.cities.find((c) => c.id === cityId);
   if (!city) return { title: "Não encontrado" };
 
@@ -51,6 +42,7 @@ export default async function DayPage(props: {
   params: Promise<Params>;
 }) {
   const { city: cityId, day: daySlug } = await props.params;
+  const tripData = await getTripData();
   const city = tripData.cities.find((c) => c.id === cityId);
   if (!city) notFound();
 
@@ -60,7 +52,17 @@ export default async function DayPage(props: {
 
   const daySlugStr = `dia-${dayIndex + 1}`;
 
-  // Find this day's position in the global list for prev/next
+  // Build flat list of all days for prev/next navigation
+  const allDays = tripData.cities.flatMap((c, cityIdx) =>
+    c.days.map((d, dIdx) => ({
+      city: c,
+      cityIndex: cityIdx,
+      day: d,
+      dayIndex: dIdx,
+      slug: `dia-${dIdx + 1}`,
+    }))
+  );
+
   const globalIndex = allDays.findIndex(
     (d) => d.city.id === cityId && d.dayIndex === dayIndex
   );

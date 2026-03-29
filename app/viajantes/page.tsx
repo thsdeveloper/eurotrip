@@ -1,4 +1,4 @@
-import { tripData } from "@/app/data/trip";
+import { getTripData } from "@/app/lib/data";
 import { TripHeader } from "@/app/components/trip-header";
 import { createClient } from "@/app/lib/supabase/server";
 import { Plane, Heart, Mail, Users } from "lucide-react";
@@ -10,6 +10,8 @@ export const metadata: Metadata = {
 };
 
 export default async function ViajantesPage() {
+  const tripData = await getTripData();
+
   let currentEmail: string | null = null;
 
   try {

@@ -1,8 +1,10 @@
-import { tripData } from "@/app/data/trip";
+import { getTripData } from "@/app/lib/data";
 import { createClient } from "@/app/lib/supabase/server";
 import { Users } from "lucide-react";
 
 export async function Travelers() {
+  const tripData = await getTripData();
+
   let currentEmail: string | null = null;
 
   try {

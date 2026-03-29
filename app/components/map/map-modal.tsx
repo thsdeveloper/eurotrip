@@ -4,7 +4,8 @@ import { useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { X, Map, ChevronLeft, ChevronRight } from "lucide-react";
 import { CountryFlag } from "@/app/components/country-flag";
-import type { City } from "@/app/data/trip";
+import type { City } from "@/app/data/types";
+import type { CityMapData } from "@/app/data/types";
 
 const CityMap = dynamic(() => import("./city-map"), {
   ssr: false,
@@ -31,6 +32,7 @@ interface MapModalProps {
   onNavigate: (index: number) => void;
   prevIndex: number;
   nextIndex: number;
+  mapData: Record<string, CityMapData>;
 }
 
 export function MapModal({
@@ -46,6 +48,7 @@ export function MapModal({
   onNavigate,
   prevIndex,
   nextIndex,
+  mapData,
 }: MapModalProps) {
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -121,7 +124,7 @@ export function MapModal({
 
       {/* Map */}
       <div className="flex-1">
-        <CityMap cityId={cityId} color={cityColor} />
+        <CityMap cityId={cityId} color={cityColor} mapData={mapData} />
       </div>
 
       {/* Legenda */}

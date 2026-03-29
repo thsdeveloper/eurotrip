@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Day } from "@/app/data/trip";
+import type { Day } from "@/app/data/types";
 import { TripIcon } from "./trip-icon";
 import { ChevronRight } from "lucide-react";
 
