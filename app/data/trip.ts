@@ -57,6 +57,7 @@ export interface TripData {
   travelers: Traveler[];
   flightDomesticOut: Flight;
   flightOut: Flight;
+  flightLhrMad: Flight;
   flightBack: Flight;
   flightDomesticBack: Flight;
   cities: City[];
@@ -65,11 +66,11 @@ export interface TripData {
 
 export const tripData: TripData = {
   title: "Eurotrip 2026",
-  version: "v7",
-  startDate: "21 de Setembro",
-  endDate: "14 de Outubro",
-  totalDays: 24,
-  totalCountries: 6,
+  version: "v8",
+  startDate: "22 de Setembro",
+  endDate: "15 de Outubro",
+  totalDays: 22,
+  totalCountries: 5,
   travelers: [
     { name: "Lidia", emoji: "👩", color: "#e74c3c" },
     { name: "Pedro", emoji: "👨", email: "pedroignacio16@gmail.com", color: "#3498db" },
@@ -80,24 +81,30 @@ export const tripData: TripData = {
     label: "DOMÉSTICO IDA",
     route: "BSB → GRU",
     time: "22/set",
-    details: "Voo doméstico — chegar com antecedência para conexão internacional",
+    details: "GOL 1457 | Reserva HDYLFN | Chegar com antecedência para conexão internacional",
   },
   flightOut: {
     label: "INTERNACIONAL IDA",
     route: "GRU → MAD",
     time: "23/set 14:10 → 24/set 05:35",
-    details: "IB0268 Iberia Direto | Duração 11h25 | 31.250 Avios × 4 = 125.000 Avios",
+    details: "IB0268 Iberia Direto | Reserva 8YPA49 | 31.250 Avios × 4 = 125.000 Avios",
+  },
+  flightLhrMad: {
+    label: "LONDRES → MADRID",
+    route: "LHR → MAD",
+    time: "14/out 12:20 → 15:50",
+    details: "IB3645 British Airways | Reserva 9SX59U",
   },
   flightBack: {
     label: "INTERNACIONAL VOLTA",
     route: "MAD → GRU",
-    time: "14/out",
-    details: "Iberia (Avios)",
+    time: "15/out 11:50 → 17:50",
+    details: "IB0271 Iberia Direto | Reserva 94ULXW | 31.250 Avios × 4 = 125.000 Avios",
   },
   flightDomesticBack: {
     label: "DOMÉSTICO VOLTA",
     route: "GRU → BSB",
-    time: "14/out",
+    time: "15/out",
     details: "Voo doméstico — chegada em casa!",
   },
   bookingAlerts: [
@@ -118,8 +125,8 @@ export const tripData: TripData = {
       flag: "🇧🇷",
       countryCode: "BR",
       icon: "✈",
-      dates: "21-23/set",
-      nights: 2,
+      dates: "22-23/set",
+      nights: 1,
       color: "#009c3b",
       colorBg: "bg-green-950/30",
       colorBorder: "border-green-500/30",
@@ -128,8 +135,8 @@ export const tripData: TripData = {
       heroImage: "https://images.unsplash.com/photo-1532009877282-3340270e0529?w=1920&q=80",
       days: [
         {
-          date: "21/set",
-          weekday: "Segunda",
+          date: "22/set",
+          weekday: "Terça",
           dayNumber: 1,
           title: "Brasília → São Paulo",
           activities: [
@@ -143,9 +150,9 @@ export const tripData: TripData = {
             {
               time: "Tarde",
               icon: "plane",
-              title: "Voo BSB → GRU",
+              title: "Voo BSB → GRU (GOL 1457)",
               description:
-                "Voo doméstico Brasília → São Paulo Guarulhos.",
+                "Voo doméstico Brasília → São Paulo Guarulhos. Reserva HDYLFN.",
             },
             {
               time: "Noite",
@@ -153,36 +160,14 @@ export const tripData: TripData = {
               title: "Pernoite em São Paulo",
               description:
                 "Descansar perto do aeroporto de Guarulhos para o voo internacional do dia seguinte.",
-              tip: "Durma cedo — o voo internacional é longo e sai à noite!",
-            },
-          ],
-        },
-        {
-          date: "22/set",
-          weekday: "Terça",
-          dayNumber: 2,
-          title: "Dia livre em São Paulo",
-          activities: [
-            {
-              time: "Dia",
-              icon: "footprints",
-              title: "Dia livre em São Paulo",
-              description:
-                "Aproveite para descansar, passear ou fazer compras. Último dia no Brasil!",
-            },
-            {
-              time: "Noite",
-              icon: "moon",
-              title: "Pernoite em São Paulo",
-              description:
-                "Descansar para o voo internacional de amanhã.",
+              tip: "Durma cedo — o voo internacional é longo e sai à tarde!",
             },
           ],
         },
         {
           date: "23/set",
           weekday: "Quarta",
-          dayNumber: 3,
+          dayNumber: 2,
           title: "São Paulo → Madrid",
           activities: [
             {
@@ -197,7 +182,7 @@ export const tripData: TripData = {
               icon: "plane",
               title: "Voo GRU → MAD (Iberia IB0268)",
               description:
-                "Voo direto São Paulo → Madrid. Duração 11h25. 31.250 Avios por pessoa. Chegada 05:35 do dia seguinte.",
+                "Voo direto São Paulo → Madrid. Duração 11h25. Reserva 8YPA49. 31.250 Avios por pessoa. Chegada 05:35 do dia seguinte.",
               tip: "Voo longo — leve travesseiro de pescoço, fone e entretenimento!",
             },
           ],
@@ -223,7 +208,7 @@ export const tripData: TripData = {
         {
           date: "24/set",
           weekday: "Quinta",
-          dayNumber: 4,
+          dayNumber: 3,
           title: "Chegada 05:35 + Centro + Prado",
           activities: [
             {
@@ -267,8 +252,8 @@ export const tripData: TripData = {
         {
           date: "25/set",
           weekday: "Sexta",
-          dayNumber: 5,
-          title: "Palácio Real + Retiro + Flamenco",
+          dayNumber: 4,
+          title: "Palácio Real + Bernabéu + Retiro + Flamenco",
           activities: [
             {
               time: "Manhã",
@@ -284,11 +269,20 @@ export const tripData: TripData = {
               description: "Guernica de Picasso.",
             },
             {
-              time: "Tarde",
+              time: "14h-16h",
+              icon: "trophy",
+              title: "Santiago Bernabéu — Tour do Estádio",
+              description:
+                "Tour do estádio do Real Madrid! Sala de troféus, vestiários, acesso ao campo, vista do estádio reformado com teto retrátil. Dura ~1h30-2h.",
+              cost: "~29 EUR/pessoa × 4 = ~116 EUR",
+              tip: "Reserve antecipado no site realmadrid.com/bernabeu-tour!",
+            },
+            {
+              time: "16h30",
               icon: "tree-pine",
               title: "Parque do Retiro",
               description:
-                "Lago, barquinhos, Palácio de Cristal. Templo de Debod ao pôr do sol.",
+                "Lago, barquinhos. Templo de Debod ao pôr do sol.",
             },
             {
               time: "Noite",
@@ -320,21 +314,45 @@ export const tripData: TripData = {
         {
           date: "26/set",
           weekday: "Sábado",
+          dayNumber: 5,
+          title: "Chegada Paris + DISNEY tarde/noite",
+          activities: [
+            {
+              time: "Manhã",
+              icon: "plane",
+              title: "Voo MAD → CDG (~2h)",
+              description:
+                "Chegada Paris ~11h. Drop malas no hotel (Marais/Latin Quarter).",
+            },
+            {
+              time: "14h-22h+",
+              icon: "castle",
+              title: "DISNEYLAND PARIS",
+              description:
+                "RER A do centro até Marne-la-Vallée (~40 min). Castelo da Bela Adormecida, Main Street USA, Fantasyland. Passeio, fotos, jantar temático, show noturno de luzes no castelo!",
+              cost: "~55-70 EUR/pessoa × 4 = ~220-280 EUR",
+              tip: "Compre antecipado no site oficial! App Disneyland Paris para horários de shows.",
+            },
+          ],
+        },
+        {
+          date: "27/set",
+          weekday: "Domingo",
           dayNumber: 6,
           title: "Torre Eiffel + Orsay + Cruzeiro Sena",
           activities: [
             {
               time: "Manhã",
               icon: "landmark",
-              title: "Chegada em Paris",
+              title: "Trocadéro + Torre Eiffel",
               description:
-                "Hotel no Marais ou Latin Quarter. Trocadéro: foto clássica com Torre Eiffel.",
+                "Foto clássica com a Torre Eiffel. Champ de Mars.",
             },
             {
               time: "Tarde",
               icon: "palette",
               title: "Musée d'Orsay",
-              description: "Monet, Renoir, Van Gogh, Degas. Fecha segundas!",
+              description: "Monet, Renoir, Van Gogh. Fecha segundas!",
               cost: "~16 EUR/pessoa",
             },
             {
@@ -347,63 +365,33 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "27/set",
-          weekday: "Domingo",
-          dayNumber: 7,
-          title: "Louvre (manhã) + Disneyland (tarde/noite)",
-          activities: [
-            {
-              time: "Manhã (9h-13h)",
-              icon: "palette",
-              title: "Louvre",
-              description:
-                "Chegue às 9h. Mona Lisa, Vênus de Milo, Vitória de Samotrácia. 3-4 horas. Fecha terças!",
-              cost: "~22 EUR/pessoa = 88 EUR",
-            },
-            {
-              time: "Almoço (~13h)",
-              icon: "utensils-crossed",
-              title: "Lanche perto do Louvre",
-              description: "Almoço rápido antes de Disney.",
-            },
-            {
-              time: "Tarde/Noite (14h30-22h+)",
-              icon: "castle",
-              title: "DISNEYLAND PARIS",
-              description:
-                "RER A do centro até Marne-la-Vallée (~40 min). Castelo da Bela Adormecida, Main Street USA, Fantasyland, Adventureland. Show noturno de luzes no castelo!",
-              cost: "~55-70 EUR/pessoa × 4 = ~220-280 EUR",
-              tip: "Compre antecipado no site oficial. App Disneyland Paris para horários de shows.",
-            },
-          ],
-        },
-        {
           date: "28/set",
           weekday: "Segunda",
-          dayNumber: 8,
-          title: "Notre-Dame à Montmartre",
+          dayNumber: 7,
+          title: "Louvre + Notre-Dame + Montmartre",
           activities: [
             {
               time: "Manhã",
-              icon: "church",
-              title: "Notre-Dame (restaurada!)",
+              icon: "palette",
+              title: "Louvre",
               description:
-                "Ingresso gratuito com reserva. Sainte-Chapelle. Shakespeare & Company.",
-              cost: "Sainte-Chapelle ~11 EUR/pessoa",
+                "Abre segunda, fecha terça! Mona Lisa, Vênus de Milo. 3-4h.",
+              cost: "~22 EUR/pessoa = 88 EUR",
             },
             {
               time: "Tarde",
-              icon: "drama",
-              title: "Montmartre",
+              icon: "church",
+              title: "Notre-Dame + Sainte-Chapelle + Montmartre",
               description:
-                "Sacré-Cœur (vista panorâmica grátis), Place du Tertre. Arco do Triunfo (vista 360°).",
-              cost: "Arco ~13 EUR/pessoa",
+                "Notre-Dame (grátis c/ reserva). Sainte-Chapelle. Sacré-Cœur (vista grátis), Place du Tertre.",
+              cost: "Sainte-Chapelle ~11 EUR/pessoa",
             },
             {
               time: "Noite",
               icon: "moon",
-              title: "Último jantar parisiense!",
-              description: "Amanhã trem pra Suíça.",
+              title: "Arco do Triunfo + último jantar parisiense!",
+              description: "Vista 360° do Arco. Amanhã trem pra Suíça.",
+              cost: "Arco ~13 EUR/pessoa",
             },
           ],
         },
@@ -428,7 +416,7 @@ export const tripData: TripData = {
         {
           date: "29/set",
           weekday: "Terça",
-          dayNumber: 9,
+          dayNumber: 8,
           title: "Paris → Interlaken de trem",
           activities: [
             {
@@ -455,7 +443,7 @@ export const tripData: TripData = {
         {
           date: "30/set",
           weekday: "Quarta",
-          dayNumber: 10,
+          dayNumber: 9,
           title: "Lauterbrunnen + Mürren",
           activities: [
             {
@@ -478,7 +466,7 @@ export const tripData: TripData = {
         {
           date: "01/out",
           weekday: "Quinta",
-          dayNumber: 11,
+          dayNumber: 10,
           title: "Jungfraujoch Top of Europe",
           activities: [
             {
@@ -508,7 +496,7 @@ export const tripData: TripData = {
         {
           date: "02/out",
           weekday: "Sexta",
-          dayNumber: 12,
+          dayNumber: 11,
           title: "Trem cênico → Lucerna → Milão",
           activities: [
             {
@@ -547,8 +535,8 @@ export const tripData: TripData = {
       flag: "🇮🇹",
       countryCode: "IT",
       icon: "✠",
-      dates: "03-08/out",
-      nights: 6,
+      dates: "03-09/out",
+      nights: 7,
       color: "#27ae60",
       colorBg: "bg-green-950/30",
       colorBorder: "border-green-500/30",
@@ -559,8 +547,8 @@ export const tripData: TripData = {
         {
           date: "03/out",
           weekday: "Sábado",
-          dayNumber: 13,
-          title: "Milão Completa",
+          dayNumber: 12,
+          title: "Milão",
           activities: [
             {
               time: "Manhã",
@@ -572,7 +560,7 @@ export const tripData: TripData = {
             {
               time: "Tarde",
               icon: "palette",
-              title: "Galleria + Última Ceia",
+              title: "Galleria + Última Ceia + Brera",
               description:
                 "Galleria Vittorio Emanuele II. Última Ceia de Da Vinci. Brera.",
               cost: "Última Ceia ~15 EUR/pessoa",
@@ -589,15 +577,50 @@ export const tripData: TripData = {
         {
           date: "04/out",
           weekday: "Domingo",
-          dayNumber: 14,
-          title: "Trem → Florença",
+          dayNumber: 13,
+          title: "Milão → VENEZA",
           activities: [
             {
               time: "Manhã",
               icon: "train-front",
-              title: "Italo Treno Milão-Florença",
+              title: "Italo/Frecciarossa Milão → Veneza",
+              description: "~2h30.",
+              cost: "~25 EUR/pessoa",
+            },
+            {
+              time: "Tarde",
+              icon: "anchor",
+              title: "Veneza!",
+              description:
+                "Piazza San Marco, Basílica, Ponte di Rialto, canais. Passeio de vaporetto pelo Grande Canal.",
+              cost: "Taxa de acesso ~5 EUR/pessoa",
+            },
+            {
+              time: "Noite",
+              icon: "utensils-crossed",
+              title: "Jantar veneziano",
+              description: "Vista pros canais. San Marco iluminada à noite é mágica!",
+            },
+          ],
+        },
+        {
+          date: "05/out",
+          weekday: "Segunda",
+          dayNumber: 14,
+          title: "Veneza → Florença",
+          activities: [
+            {
+              time: "Manhã",
+              icon: "anchor",
+              title: "Último passeio Veneza",
+              description: "Burano (ilha colorida) ou Murano (vidros). Ou caminhe sem rumo pelas ruelas.",
+            },
+            {
+              time: "13h",
+              icon: "train-front",
+              title: "Trem Veneza → Florença",
               description: "~2h.",
-              cost: "~25 EUR/pessoa (1ª classe)",
+              cost: "~25 EUR/pessoa",
             },
             {
               time: "Tarde",
@@ -615,8 +638,8 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "05/out",
-          weekday: "Segunda",
+          date: "06/out",
+          weekday: "Terça",
           dayNumber: 15,
           title: "Florença Renascimento",
           activities: [
@@ -630,49 +653,49 @@ export const tripData: TripData = {
             {
               time: "Tarde",
               icon: "church",
-              title: "Cúpula de Brunelleschi",
-              description: "463 degraus. Vista 360°. Campanário de Giotto.",
-              cost: "~30 EUR/pessoa combo",
+              title: "Cúpula de Brunelleschi + Accademia (David!)",
+              description: "463 degraus. Accademia — David de Michelangelo. Mercato Centrale.",
+              cost: "~30 EUR combo + ~16 EUR Accademia",
             },
             {
               time: "Noite",
               icon: "sunset",
               title: "Piazzale Michelangelo ao pôr do sol",
-              description: "Oltrarno.",
-            },
-          ],
-        },
-        {
-          date: "06/out",
-          weekday: "Terça",
-          dayNumber: 16,
-          title: "Florença + Trem Roma",
-          activities: [
-            {
-              time: "Manhã",
-              icon: "palette",
-              title: "Accademia — David!",
-              description: "San Lorenzo. Mercato Centrale.",
-              cost: "~16 EUR/pessoa",
-            },
-            {
-              time: "Tarde",
-              icon: "train-front",
-              title: "Trem Florença → Roma",
-              description: "~1h30.",
-              cost: "~25-50 EUR/pessoa",
-            },
-            {
-              time: "Noite",
-              icon: "droplets",
-              title: "Fontana di Trevi iluminada",
-              description: "Piazza di Spagna. Gelato!",
+              description: "Panorama incrível de Florença!",
             },
           ],
         },
         {
           date: "07/out",
           weekday: "Quarta",
+          dayNumber: 16,
+          title: "Florença → Roma",
+          activities: [
+            {
+              time: "Manhã",
+              icon: "train-front",
+              title: "Trem Florença → Roma",
+              description: "Frecciarossa ~1h30.",
+              cost: "~25-50 EUR/pessoa",
+            },
+            {
+              time: "Tarde",
+              icon: "landmark",
+              title: "Panteão + Praças",
+              description:
+                "Panteão (grátis). Piazza Navona. Piazza di Spagna.",
+            },
+            {
+              time: "Noite",
+              icon: "droplets",
+              title: "Fontana di Trevi iluminada",
+              description: "Gelato! Trastevere!",
+            },
+          ],
+        },
+        {
+          date: "08/out",
+          weekday: "Quinta",
           dayNumber: 17,
           title: "Roma Antiga",
           activities: [
@@ -684,25 +707,19 @@ export const tripData: TripData = {
               cost: "~18 EUR/pessoa × 4 = 72 EUR",
             },
             {
-              time: "Tarde",
-              icon: "landmark",
-              title: "Panteão + Praças",
-              description:
-                "Panteão (grátis). Piazza Navona. Spagna ao entardecer.",
-            },
-            {
               time: "Noite",
               icon: "utensils",
               title: "Trastevere!",
               description: "Cacio e pepe, carbonara, amatriciana.",
+              tip: "Série A pode ter jogo em Roma esta semana! Fique de olho.",
             },
           ],
         },
         {
-          date: "08/out",
-          weekday: "Quinta",
+          date: "09/out",
+          weekday: "Sexta",
           dayNumber: 18,
-          title: "Vaticano",
+          title: "Vaticano + Despedida",
           activities: [
             {
               time: "Manhã (8h)",
@@ -714,8 +731,8 @@ export const tripData: TripData = {
             {
               time: "Tarde",
               icon: "castle",
-              title: "Cúpula + Castel Sant'Angelo",
-              description: "Cúpula da Basílica.",
+              title: "Cúpula + Castel Sant'Angelo + Villa Borghese",
+              description: "Cúpula da Basílica. Passeio por Villa Borghese.",
               cost: "Cúpula ~8 EUR/pessoa",
             },
             {
@@ -735,7 +752,7 @@ export const tripData: TripData = {
       flag: "🇬🇧",
       countryCode: "GB",
       icon: "♛",
-      dates: "09-12/out",
+      dates: "10-13/out",
       nights: 4,
       color: "#8e44ad",
       colorBg: "bg-purple-950/30",
@@ -745,10 +762,10 @@ export const tripData: TripData = {
       heroImage: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1920&q=80",
       days: [
         {
-          date: "09/out",
-          weekday: "Sexta",
+          date: "10/out",
+          weekday: "Sábado",
           dayNumber: 19,
-          title: "Chegada + Westminster",
+          title: "Chegada + Westminster + South Bank",
           activities: [
             {
               time: "Manhã",
@@ -766,8 +783,8 @@ export const tripData: TripData = {
             {
               time: "Tarde",
               icon: "ferris-wheel",
-              title: "London Eye + Tate Modern",
-              description: "Tate Modern (grátis!). St Paul's.",
+              title: "London Eye + Tate Modern + St Paul's",
+              description: "Tate Modern (grátis!). St Paul's Cathedral.",
               cost: "London Eye ~30-37 GBP/pessoa",
             },
             {
@@ -779,9 +796,33 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "10/out",
-          weekday: "Sábado",
+          date: "11/out",
+          weekday: "Domingo",
           dayNumber: 20,
+          title: "Tower + PREMIER LEAGUE!",
+          activities: [
+            {
+              time: "Manhã",
+              icon: "castle",
+              title: "Tower of London + Tower Bridge",
+              description: "Piso de vidro na Tower Bridge!",
+              cost: "Tower ~33 GBP/pessoa",
+            },
+            {
+              time: "Tarde/Noite",
+              icon: "trophy",
+              title: "FUTEBOL — Premier League!",
+              description:
+                "Se time de Londres jogar em casa: Emirates (Arsenal 60k), Tottenham Stadium (62k), Stamford Bridge (Chelsea), London Stadium (West Ham).",
+              cost: "~30-80 GBP/pessoa",
+              tip: "Fixtures PL 2026-27 saem jun/2026. Compre ingressos assim que abrirem!",
+            },
+          ],
+        },
+        {
+          date: "12/out",
+          weekday: "Segunda",
+          dayNumber: 21,
           title: "Realeza + Museus + Teatro",
           activities: [
             {
@@ -806,35 +847,8 @@ export const tripData: TripData = {
           ],
         },
         {
-          date: "11/out",
-          weekday: "Domingo",
-          dayNumber: 21,
-          title: "Tower + Mercados",
-          activities: [
-            {
-              time: "Manhã",
-              icon: "castle",
-              title: "Tower of London + Tower Bridge",
-              description: "",
-              cost: "Tower ~33 GBP/pessoa. Bridge ~12 GBP",
-            },
-            {
-              time: "Tarde",
-              icon: "shopping-bag",
-              title: "Shoreditch + Brick Lane",
-              description: "Ou Notting Hill + Portobello.",
-            },
-            {
-              time: "Noite",
-              icon: "moon",
-              title: "Camden ou Soho",
-              description: "",
-            },
-          ],
-        },
-        {
-          date: "12/out",
-          weekday: "Segunda",
+          date: "13/out",
+          weekday: "Terça",
           dayNumber: 22,
           title: "Dia Livre + Despedida",
           activities: [
@@ -847,7 +861,7 @@ export const tripData: TripData = {
             {
               time: "Tarde",
               icon: "shopping-bag",
-              title: "Compras Oxford St",
+              title: "Compras Oxford St + Afternoon tea",
               description: "Afternoon tea!",
               cost: "Afternoon tea ~30-50 GBP/pessoa",
             },
@@ -855,7 +869,8 @@ export const tripData: TripData = {
               time: "Noite",
               icon: "beer",
               title: "Pub de despedida",
-              description: "Arrume malas!",
+              description: "Arrume malas! Amanhã voo LHR 12:20 — esteja no aeroporto até 10h!",
+              tip: "Oyster Card / contactless para o metrô.",
             },
           ],
         },
@@ -868,27 +883,27 @@ export const tripData: TripData = {
       flag: "🇪🇸",
       countryCode: "ES",
       icon: "☀",
-      dates: "13/out",
+      dates: "14/out",
       nights: 1,
       color: "#f39c12",
       colorBg: "bg-amber-950/30",
       colorBorder: "border-amber-500/30",
       colorText: "text-amber-400",
-      transport: "Voo LHR-MAD ~2h",
+      transport: "IB3645 LHR-MAD 12:20→15:50",
       heroImage: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=1920&q=80",
       days: [
         {
-          date: "13/out",
-          weekday: "Terça",
+          date: "14/out",
+          weekday: "Quarta",
           dayNumber: 23,
-          title: "Dia Livre em Madrid",
+          title: "Chegada 15:50 + Folga + Despedida",
           activities: [
             {
-              time: "Manhã",
-              icon: "flag",
-              title: "Dia tranquilo em Madrid",
+              time: "Tarde",
+              icon: "plane",
+              title: "Pouso Madrid 15:50 (IB3645)",
               description:
-                "Malasaña, brunch, revisitar favoritos. Último dia na Europa!",
+                "Transfer ao hotel. Tempo livre: revisitar favoritos, Malasaña, compras.",
             },
             {
               time: "Tarde",
@@ -901,8 +916,8 @@ export const tripData: TripData = {
             {
               time: "Noite",
               icon: "heart",
-              title: "Último jantar da Eurotrip!",
-              description: "Tapas de despedida.",
+              title: "ÚLTIMO JANTAR DA EUROTRIP!",
+              description: "Tapas de despedida. Brinde a 22 dias incríveis!",
             },
           ],
         },
@@ -915,7 +930,7 @@ export const tripData: TripData = {
       flag: "🇧🇷",
       countryCode: "BR",
       icon: "🏠",
-      dates: "14/out",
+      dates: "15/out",
       nights: 0,
       color: "#009c3b",
       colorBg: "bg-green-950/30",
@@ -925,8 +940,8 @@ export const tripData: TripData = {
       heroImage: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=1920&q=80",
       days: [
         {
-          date: "14/out",
-          weekday: "Quarta",
+          date: "15/out",
+          weekday: "Quinta",
           dayNumber: 24,
           title: "Volta ao Brasil — Madrid → Guarulhos → Brasília",
           activities: [
@@ -935,17 +950,17 @@ export const tripData: TripData = {
               icon: "shopping-bag",
               title: "Duty Free Aeroporto de Barajas",
               description:
-                "Últimas compras antes de embarcar. 24 dias, 6 países, 8 cidades!",
+                "Últimas compras antes de embarcar. 22 dias, 5 países, 9 cidades!",
             },
             {
-              time: "Dia",
+              time: "11:50",
               icon: "plane",
-              title: "Voo MAD → GRU (Iberia/Avios)",
+              title: "Voo MAD → GRU (IB0271)",
               description:
-                "Voo internacional Madrid → São Paulo Guarulhos. Despedida da Europa!",
+                "Voo internacional Madrid → São Paulo Guarulhos. Reserva 94ULXW. Chegada 17:50. Despedida da Europa!",
             },
             {
-              time: "Noite",
+              time: "17:50",
               icon: "clock",
               title: "Chegada em Guarulhos (GRU)",
               description:
@@ -963,7 +978,7 @@ export const tripData: TripData = {
               icon: "home",
               title: "Chegada em Brasília!",
               description:
-                "Fim da Eurotrip 2026! 🏠 De volta ao lar.",
+                "Fim da Eurotrip 2026! De volta ao lar.",
             },
           ],
         },
@@ -984,6 +999,7 @@ export interface BudgetItem {
 export const budgetItems: BudgetItem[] = [
   // Madrid
   { category: "Atração", item: "Palácio Real", costPerPerson: "14 EUR", totalCost: "56 EUR", currency: "EUR", city: "Madrid" },
+  { category: "Atração", item: "Santiago Bernabéu Tour", costPerPerson: "29 EUR", totalCost: "116 EUR", currency: "EUR", city: "Madrid" },
   // Paris
   { category: "Museu", item: "Musée d'Orsay", costPerPerson: "16 EUR", totalCost: "64 EUR", currency: "EUR", city: "Paris" },
   { category: "Cruzeiro", item: "Cruzeiro Sena", costPerPerson: "15-18 EUR", totalCost: "60-72 EUR", currency: "EUR", city: "Paris" },
@@ -1000,7 +1016,9 @@ export const budgetItems: BudgetItem[] = [
   // Itália
   { category: "Atração", item: "Duomo di Milano (terraço)", costPerPerson: "14-17 EUR", totalCost: "56-68 EUR", currency: "EUR", city: "Itália" },
   { category: "Atração", item: "Última Ceia", costPerPerson: "15 EUR", totalCost: "60 EUR", currency: "EUR", city: "Itália" },
-  { category: "Trem", item: "Italo Milão-Florença", costPerPerson: "25 EUR", totalCost: "100 EUR", currency: "EUR", city: "Itália" },
+  { category: "Trem", item: "Milão → Veneza", costPerPerson: "25 EUR", totalCost: "100 EUR", currency: "EUR", city: "Itália" },
+  { category: "Atração", item: "Veneza taxa de acesso", costPerPerson: "5 EUR", totalCost: "20 EUR", currency: "EUR", city: "Itália" },
+  { category: "Trem", item: "Veneza → Florença", costPerPerson: "25 EUR", totalCost: "100 EUR", currency: "EUR", city: "Itália" },
   { category: "Museu", item: "Uffizi", costPerPerson: "20-25 EUR", totalCost: "80-100 EUR", currency: "EUR", city: "Itália" },
   { category: "Atração", item: "Cúpula Brunelleschi combo", costPerPerson: "30 EUR", totalCost: "120 EUR", currency: "EUR", city: "Itália" },
   { category: "Museu", item: "Accademia (David)", costPerPerson: "16 EUR", totalCost: "64 EUR", currency: "EUR", city: "Itália" },
@@ -1031,12 +1049,14 @@ export const checklist = [
   { id: "hotel-paris", label: "Hotel Paris (3 noites)", category: "Hospedagem" },
   { id: "hotel-interlaken", label: "Hotel Interlaken (4 noites)", category: "Hospedagem" },
   { id: "hotel-milao", label: "Hotel Milão (1 noite)", category: "Hospedagem" },
+  { id: "hotel-veneza", label: "Hotel Veneza (1 noite)", category: "Hospedagem" },
   { id: "hotel-florenca", label: "Hotel Florença (2 noites)", category: "Hospedagem" },
   { id: "hotel-roma", label: "Hotel Roma (3 noites)", category: "Hospedagem" },
   { id: "hotel-londres", label: "Hotel Londres (4 noites)", category: "Hospedagem" },
   { id: "hotel-madrid2", label: "Hotel Madrid volta (1 noite)", category: "Hospedagem" },
   { id: "tgv-paris-berna", label: "TGV Paris → Berna", category: "Trens" },
-  { id: "trem-milao-florenca", label: "Italo Milão → Florença", category: "Trens" },
+  { id: "trem-milao-veneza", label: "Trem Milão → Veneza", category: "Trens" },
+  { id: "trem-veneza-florenca", label: "Trem Veneza → Florença", category: "Trens" },
   { id: "trem-florenca-roma", label: "Trem Florença → Roma", category: "Trens" },
   { id: "swiss-pass", label: "Swiss Travel Pass 4 dias", category: "Passes" },
   { id: "paris-museum", label: "Paris Museum Pass 2 dias", category: "Passes" },
@@ -1049,6 +1069,8 @@ export const checklist = [
   { id: "uffizi", label: "Uffizi (fecha segundas!)", category: "Reservas" },
   { id: "coliseu", label: "Coliseu + Foro + Palatino", category: "Reservas" },
   { id: "vaticano", label: "Vaticano + Sistina", category: "Reservas" },
+  { id: "bernabeu", label: "Santiago Bernabéu Tour", category: "Reservas" },
   { id: "flamenco", label: "Flamenco Madrid", category: "Reservas" },
   { id: "westend", label: "Musical West End", category: "Reservas" },
+  { id: "futebol-pl", label: "Futebol Premier League (11-12/out)", category: "Reservas" },
 ];

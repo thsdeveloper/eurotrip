@@ -36,6 +36,8 @@ import {
   Compass,
   Luggage,
   Clock,
+  Trophy,
+  Anchor,
   type LucideIcon,
 } from "lucide-react";
 
@@ -77,6 +79,8 @@ const iconMap: Record<string, LucideIcon> = {
   compass: Compass,
   luggage: Luggage,
   clock: Clock,
+  trophy: Trophy,
+  anchor: Anchor,
 };
 
 interface TripIconProps {

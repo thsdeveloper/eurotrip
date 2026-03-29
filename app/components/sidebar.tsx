@@ -148,7 +148,7 @@ export function Sidebar() {
             <Heart size={10} className="text-red-400 fill-red-400" />
             <span>Joquebede & Thiago</span>
           </p>
-          <p className="mt-1">21 Set — 14 Out · {tripData.totalDays} dias · {tripData.totalCountries} países</p>
+          <p className="mt-1">22 Set — 15 Out · {tripData.totalDays} dias · {tripData.totalCountries} países</p>
           <form action={logout} className="mt-3">
             <button
               type="submit"

@@ -69,7 +69,7 @@ export const mapData: Record<string, CityMapData> = {
     center: [-20.0, -47.0],
     zoom: 5,
     pois: [
-      { id: "bsb-aeroporto", label: "Aeroporto de Brasília (BSB)", lat: -15.8711, lng: -47.9186, day: 2, time: "Manhã", description: "Check-in e embarque doméstico" },
+      { id: "bsb-aeroporto", label: "Aeroporto de Brasília (BSB)", lat: -15.8711, lng: -47.9186, day: 1, time: "Manhã", description: "Check-in e embarque doméstico" },
       { id: "gru-aeroporto", label: "Aeroporto de Guarulhos (GRU)", lat: -23.4356, lng: -46.4731, day: 2, time: "Dia", description: "Conexão doméstico → internacional" },
     ],
     trainRoutes: [
@@ -142,17 +142,18 @@ export const mapData: Record<string, CityMapData> = {
       ],
     },
     pois: [
-      { id: "mad-barajas", label: "Aeroporto Barajas", lat: 40.4719, lng: -3.5626, day: 4, time: "Manhã", description: "Pouso 05:35 — imigração + bagagem" },
-      { id: "mad-san-miguel", label: "Mercado de San Miguel", lat: 40.4154, lng: -3.7089, day: 4, time: "Almoço", description: "Jamón ibérico, queijos, croquetas" },
-      { id: "mad-sol", label: "Puerta del Sol", lat: 40.4168, lng: -3.7038, day: 4, time: "Tarde", description: "Passeio leve pelo centro" },
-      { id: "mad-plaza-mayor", label: "Plaza Mayor", lat: 40.4155, lng: -3.7074, day: 4, time: "Tarde", description: "Passeio leve pelo centro" },
-      { id: "mad-prado", label: "Museu do Prado", lat: 40.4138, lng: -3.6921, day: 4, time: "Final da tarde", description: "Grátis 18h-20h! Las Meninas, Goya, Bosch" },
-      { id: "mad-la-latina", label: "La Latina", lat: 40.4110, lng: -3.7116, day: 4, time: "Noite", description: "Tapas — jantar 21h+" },
-      { id: "mad-palacio", label: "Palácio Real", lat: 40.4180, lng: -3.7142, day: 5, time: "Manhã", description: "14 EUR/pessoa" },
-      { id: "mad-reina-sofia", label: "Reina Sofía", lat: 40.4086, lng: -3.6943, day: 5, time: "Manhã", description: "Guernica de Picasso" },
-      { id: "mad-retiro", label: "Parque do Retiro", lat: 40.4153, lng: -3.6845, day: 5, time: "Tarde", description: "Lago, barquinhos, Palácio de Cristal" },
-      { id: "mad-debod", label: "Templo de Debod", lat: 40.4241, lng: -3.7178, day: 5, time: "Tarde", description: "Pôr do sol" },
-      { id: "mad-flamenco", label: "Flamenco + Salmon Guru", lat: 40.4160, lng: -3.6990, day: 5, time: "Noite", description: "Essential Flamenco + drinks" },
+      { id: "mad-barajas", label: "Aeroporto Barajas", lat: 40.4719, lng: -3.5626, day: 3, time: "Manhã", description: "Pouso 05:35 — imigração + bagagem" },
+      { id: "mad-san-miguel", label: "Mercado de San Miguel", lat: 40.4154, lng: -3.7089, day: 3, time: "Almoço", description: "Jamón ibérico, queijos, croquetas" },
+      { id: "mad-sol", label: "Puerta del Sol", lat: 40.4168, lng: -3.7038, day: 3, time: "Tarde", description: "Passeio leve pelo centro" },
+      { id: "mad-plaza-mayor", label: "Plaza Mayor", lat: 40.4155, lng: -3.7074, day: 3, time: "Tarde", description: "Passeio leve pelo centro" },
+      { id: "mad-prado", label: "Museu do Prado", lat: 40.4138, lng: -3.6921, day: 3, time: "Final da tarde", description: "Grátis 18h-20h! Las Meninas, Goya, Bosch" },
+      { id: "mad-la-latina", label: "La Latina", lat: 40.4110, lng: -3.7116, day: 3, time: "Noite", description: "Tapas — jantar 21h+" },
+      { id: "mad-palacio", label: "Palácio Real", lat: 40.4180, lng: -3.7142, day: 4, time: "Manhã", description: "14 EUR/pessoa" },
+      { id: "mad-reina-sofia", label: "Reina Sofía", lat: 40.4086, lng: -3.6943, day: 4, time: "Manhã", description: "Guernica de Picasso" },
+      { id: "mad-bernabeu", label: "Santiago Bernabéu", lat: 40.4530, lng: -3.6883, day: 4, time: "14h-16h", description: "Tour do estádio do Real Madrid — ~29 EUR" },
+      { id: "mad-retiro", label: "Parque do Retiro", lat: 40.4153, lng: -3.6845, day: 4, time: "Tarde", description: "Lago, barquinhos, Palácio de Cristal" },
+      { id: "mad-debod", label: "Templo de Debod", lat: 40.4241, lng: -3.7178, day: 4, time: "Tarde", description: "Pôr do sol" },
+      { id: "mad-flamenco", label: "Flamenco + Salmon Guru", lat: 40.4160, lng: -3.6990, day: 4, time: "Noite", description: "Essential Flamenco + drinks" },
     ],
     accommodations: [
       {
@@ -234,11 +235,11 @@ export const mapData: Record<string, CityMapData> = {
       { id: "par-orsay", label: "Musée d'Orsay", lat: 48.8600, lng: 2.3266, day: 6, time: "Tarde", description: "Monet, Renoir, Van Gogh — ~16 EUR" },
       { id: "par-cruzeiro", label: "Cruzeiro pelo Sena", lat: 48.8584, lng: 2.2945, day: 6, time: "Noite", description: "Pôr do sol no rio" },
       { id: "par-louvre", label: "Louvre", lat: 48.8606, lng: 2.3376, day: 7, time: "Manhã", description: "Mona Lisa, Vênus de Milo — ~22 EUR" },
-      { id: "par-disney", label: "Disneyland Paris", lat: 48.8674, lng: 2.7836, day: 7, time: "Tarde/Noite", description: "RER A ~40 min — show noturno!" },
-      { id: "par-notre-dame", label: "Notre-Dame", lat: 48.8530, lng: 2.3499, day: 8, time: "Manhã", description: "Restaurada! Ingresso gratuito com reserva" },
-      { id: "par-sainte-chapelle", label: "Sainte-Chapelle", lat: 48.8554, lng: 2.3450, day: 8, time: "Manhã", description: "Vitrais góticos — ~11 EUR" },
-      { id: "par-montmartre", label: "Sacré-Cœur / Montmartre", lat: 48.8867, lng: 2.3431, day: 8, time: "Tarde", description: "Vista panorâmica grátis, Place du Tertre" },
-      { id: "par-arc", label: "Arco do Triunfo", lat: 48.8738, lng: 2.2950, day: 8, time: "Tarde", description: "Vista 360° — ~13 EUR" },
+      { id: "par-disney", label: "Disneyland Paris", lat: 48.8674, lng: 2.7836, day: 5, time: "14h-22h+", description: "RER A ~40 min — show noturno!" },
+      { id: "par-notre-dame", label: "Notre-Dame", lat: 48.8530, lng: 2.3499, day: 7, time: "Tarde", description: "Restaurada! Ingresso gratuito com reserva" },
+      { id: "par-sainte-chapelle", label: "Sainte-Chapelle", lat: 48.8554, lng: 2.3450, day: 7, time: "Manhã", description: "Vitrais góticos — ~11 EUR" },
+      { id: "par-montmartre", label: "Sacré-Cœur / Montmartre", lat: 48.8867, lng: 2.3431, day: 7, time: "Tarde", description: "Vista panorâmica grátis, Place du Tertre" },
+      { id: "par-arc", label: "Arco do Triunfo", lat: 48.8738, lng: 2.2950, day: 7, time: "Noite", description: "Vista 360° — ~13 EUR" },
     ],
     accommodations: [
       {
@@ -315,14 +316,14 @@ export const mapData: Record<string, CityMapData> = {
       ],
     },
     pois: [
-      { id: "sui-berna", label: "Estação de Berna", lat: 46.9480, lng: 7.4400, day: 9, time: "Manhã", description: "Chegada TGV de Paris ~4h30" },
-      { id: "sui-interlaken", label: "Interlaken Ost", lat: 46.6900, lng: 7.8700, day: 9, time: "Tarde", description: "Check-in — entre dois lagos" },
-      { id: "sui-lauterbrunnen", label: "Lauterbrunnen", lat: 46.5936, lng: 7.9094, day: 10, time: "Manhã", description: "Vale das 72 cachoeiras! Staubbach Falls" },
-      { id: "sui-murren", label: "Mürren", lat: 46.5592, lng: 7.8925, day: 10, time: "Tarde", description: "Vilarejo sem carros — Eiger, Mönch, Jungfrau" },
-      { id: "sui-jungfraujoch", label: "Jungfraujoch (3.454m)", lat: 46.5472, lng: 7.9850, day: 11, time: "Manhã", description: "Top of Europe! Glaciar Aletsch" },
-      { id: "sui-grindelwald", label: "Grindelwald", lat: 46.6241, lng: 8.0413, day: 11, time: "Tarde", description: "Paragliding opcional — 180 CHF" },
-      { id: "sui-harder-kulm", label: "Harder Kulm", lat: 46.6960, lng: 7.8680, day: 11, time: "Noite", description: "Vista dos lagos e Alpes ao entardecer" },
-      { id: "sui-lucerna", label: "Lucerna", lat: 47.0519, lng: 8.3074, day: 12, time: "Meio-dia", description: "Kapellbrücke, cidade velha, Leão" },
+      { id: "sui-berna", label: "Estação de Berna", lat: 46.9480, lng: 7.4400, day: 8, time: "Manhã", description: "Chegada TGV de Paris ~4h30" },
+      { id: "sui-interlaken", label: "Interlaken Ost", lat: 46.6900, lng: 7.8700, day: 8, time: "Tarde", description: "Check-in — entre dois lagos" },
+      { id: "sui-lauterbrunnen", label: "Lauterbrunnen", lat: 46.5936, lng: 7.9094, day: 9, time: "Manhã", description: "Vale das 72 cachoeiras! Staubbach Falls" },
+      { id: "sui-murren", label: "Mürren", lat: 46.5592, lng: 7.8925, day: 9, time: "Tarde", description: "Vilarejo sem carros — Eiger, Mönch, Jungfrau" },
+      { id: "sui-jungfraujoch", label: "Jungfraujoch (3.454m)", lat: 46.5472, lng: 7.9850, day: 10, time: "Manhã", description: "Top of Europe! Glaciar Aletsch" },
+      { id: "sui-grindelwald", label: "Grindelwald", lat: 46.6241, lng: 8.0413, day: 10, time: "Tarde", description: "Paragliding opcional — 180 CHF" },
+      { id: "sui-harder-kulm", label: "Harder Kulm", lat: 46.6960, lng: 7.8680, day: 10, time: "Noite", description: "Vista dos lagos e Alpes ao entardecer" },
+      { id: "sui-lucerna", label: "Lucerna", lat: 47.0519, lng: 8.3074, day: 11, time: "Meio-dia", description: "Kapellbrücke, cidade velha, Leão" },
     ],
     accommodations: [
       {
@@ -466,7 +467,7 @@ export const mapData: Record<string, CityMapData> = {
       type: "flight",
       from: "Aeroporto Fiumicino (FCO)",
       to: "Aeroporto Heathrow (LHR)",
-      time: "09/out · ~2h30 de voo",
+      time: "10/out · ~2h30 de voo",
       details: "Voo Roma → Londres · Transfer ao centro via Heathrow Express",
       waypoints: [
         [41.8003, 12.2514],   // FCO — Fiumicino
@@ -478,24 +479,27 @@ export const mapData: Record<string, CityMapData> = {
     },
     pois: [
       // Milano (Day 10)
-      { id: "ita-duomo", label: "Duomo di Milano", lat: 45.4642, lng: 9.1900, day: 13, time: "Manhã", description: "Terraço com vista dos Alpes" },
-      { id: "ita-galleria", label: "Galleria Vittorio Emanuele", lat: 45.4659, lng: 9.1903, day: 13, time: "Tarde", description: "Shopping histórico" },
-      { id: "ita-ultima-ceia", label: "Última Ceia (Santa Maria)", lat: 45.4660, lng: 9.1711, day: 13, time: "Tarde", description: "Da Vinci — reserve meses antes!" },
-      { id: "ita-navigli", label: "Navigli", lat: 45.4488, lng: 9.1770, day: 13, time: "Noite", description: "Canais e restaurantes" },
-      // Florença (Days 11-13)
+      { id: "ita-duomo", label: "Duomo di Milano", lat: 45.4642, lng: 9.1900, day: 12, time: "Manhã", description: "Terraço com vista dos Alpes" },
+      { id: "ita-galleria", label: "Galleria Vittorio Emanuele", lat: 45.4659, lng: 9.1903, day: 12, time: "Tarde", description: "Shopping histórico" },
+      { id: "ita-ultima-ceia", label: "Última Ceia (Santa Maria)", lat: 45.4660, lng: 9.1711, day: 12, time: "Tarde", description: "Da Vinci — reserve meses antes!" },
+      { id: "ita-navigli", label: "Navigli", lat: 45.4488, lng: 9.1770, day: 12, time: "Noite", description: "Canais e restaurantes" },
+      // Veneza (Day 13)
+      { id: "ita-san-marco", label: "Piazza San Marco", lat: 45.4343, lng: 12.3388, day: 13, time: "Tarde", description: "Basílica, Campanile, canais" },
+      { id: "ita-rialto", label: "Ponte di Rialto", lat: 45.4381, lng: 12.3358, day: 13, time: "Tarde", description: "Grande Canal — vaporetto" },
+      // Veneza → Florença (Days 14-15)
       { id: "ita-signoria", label: "Piazza della Signoria", lat: 43.7696, lng: 11.2558, day: 14, time: "Tarde", description: "Palazzo Vecchio" },
       { id: "ita-ponte-vecchio", label: "Ponte Vecchio", lat: 43.7680, lng: 11.2531, day: 14, time: "Tarde", description: "Ponte medieval com joalherias" },
       { id: "ita-uffizi", label: "Uffizi", lat: 43.7677, lng: 11.2553, day: 15, time: "Manhã", description: "Botticelli, Leonardo, Michelangelo — 3h" },
       { id: "ita-brunelleschi", label: "Cúpula de Brunelleschi", lat: 43.7731, lng: 11.2560, day: 15, time: "Tarde", description: "463 degraus — vista 360°" },
       { id: "ita-piazzale", label: "Piazzale Michelangelo", lat: 43.7629, lng: 11.2650, day: 15, time: "Noite", description: "Pôr do sol sobre Florença" },
-      { id: "ita-accademia", label: "Accademia — David", lat: 43.7769, lng: 11.2587, day: 16, time: "Manhã", description: "Michelangelo — 16 EUR" },
-      { id: "ita-mercato", label: "Mercato Centrale", lat: 43.7762, lng: 11.2535, day: 16, time: "Manhã", description: "San Lorenzo" },
-      // Roma (Days 13-15)
+      { id: "ita-accademia", label: "Accademia — David", lat: 43.7769, lng: 11.2587, day: 15, time: "Manhã", description: "Michelangelo — 16 EUR" },
+      { id: "ita-mercato", label: "Mercato Centrale", lat: 43.7762, lng: 11.2535, day: 15, time: "Manhã", description: "San Lorenzo" },
+      // Roma (Days 16-18)
       { id: "ita-trevi", label: "Fontana di Trevi", lat: 41.9009, lng: 12.4833, day: 16, time: "Noite", description: "Iluminada à noite" },
       { id: "ita-spagna", label: "Piazza di Spagna", lat: 41.9057, lng: 12.4823, day: 16, time: "Noite", description: "Escadaria" },
       { id: "ita-coliseu", label: "Coliseu", lat: 41.8902, lng: 12.4922, day: 17, time: "Manhã", description: "Foro Romano + Palatino — 18 EUR" },
-      { id: "ita-panteao", label: "Panteão", lat: 41.8986, lng: 12.4769, day: 17, time: "Tarde", description: "Grátis!" },
-      { id: "ita-navona", label: "Piazza Navona", lat: 41.8992, lng: 12.4731, day: 17, time: "Tarde", description: "Fontes barrocas" },
+      { id: "ita-panteao", label: "Panteão", lat: 41.8986, lng: 12.4769, day: 16, time: "Tarde", description: "Grátis!" },
+      { id: "ita-navona", label: "Piazza Navona", lat: 41.8992, lng: 12.4731, day: 16, time: "Tarde", description: "Fontes barrocas" },
       { id: "ita-trastevere", label: "Trastevere", lat: 41.8893, lng: 12.4695, day: 17, time: "Noite", description: "Cacio e pepe, carbonara" },
       { id: "ita-vaticano", label: "Vaticano + Sistina", lat: 41.9029, lng: 12.4534, day: 18, time: "Manhã", description: "Chegue 8h — 17 EUR" },
       { id: "ita-santangelo", label: "Castel Sant'Angelo", lat: 41.9031, lng: 12.4663, day: 18, time: "Tarde", description: "Vista do Tibre" },
@@ -518,13 +522,29 @@ export const mapData: Record<string, CityMapData> = {
         amenities: ["Wi-Fi", "Café da manhã", "Ar condicionado"],
       },
       {
+        id: "acc-veneza",
+        label: "Hotel Veneza",
+        lat: 45.4408,
+        lng: 12.3155,
+        nights: 1,
+        checkIn: "04/out",
+        checkOut: "05/out",
+        type: "hotel",
+        neighborhood: "Santa Lucia / Cannaregio",
+        pricePerNight: "~150 EUR",
+        totalPrice: "~150 EUR",
+        guests: 4,
+        tip: "Perto da estação Santa Lucia. 1 noite — Veneza merece o anoitecer!",
+        amenities: ["Wi-Fi", "Ar condicionado"],
+      },
+      {
         id: "acc-florenca",
         label: "Airbnb Florença",
         lat: 43.7710,
         lng: 11.2530,
         nights: 2,
-        checkIn: "04/out",
-        checkOut: "06/out",
+        checkIn: "05/out",
+        checkOut: "07/out",
         type: "airbnb",
         neighborhood: "Santa Maria Novella / San Lorenzo",
         pricePerNight: "~140 EUR",
@@ -539,8 +559,8 @@ export const mapData: Record<string, CityMapData> = {
         lat: 41.8960,
         lng: 12.4770,
         nights: 3,
-        checkIn: "06/out",
-        checkOut: "09/out",
+        checkIn: "07/out",
+        checkOut: "10/out",
         type: "airbnb",
         neighborhood: "Centro Storico / Trastevere",
         pricePerNight: "~160 EUR",
@@ -551,18 +571,30 @@ export const mapData: Record<string, CityMapData> = {
       },
     ],
     trainRoutes: [
-      // Italo Treno Milano Centrale → Firenze SMN
+      // Italo/Frecciarossa Milano Centrale → Venezia Santa Lucia
       {
         fromId: "ita-navigli",
-        toId: "ita-signoria",
-        label: "Italo Treno Milano→Firenze",
+        toId: "ita-san-marco",
+        label: "Italo/Frecciarossa Milano→Venezia",
         waypoints: [
           [45.4488, 9.1770], // Navigli (→ Milano Centrale)
           [45.4847, 9.2045], // Milano Centrale
-          [45.3200, 9.2800], // Lodi
-          [45.0500, 9.7000], // Piacenza
-          [44.8000, 10.3300], // Parma
-          [44.6500, 10.9300], // Modena
+          [45.4100, 9.5000], // Brescia area
+          [45.4300, 10.9900], // Verona area
+          [45.4050, 11.8800], // Padova area
+          [45.4408, 12.3210], // Venezia Santa Lucia
+          [45.4343, 12.3388], // Piazza San Marco
+        ],
+      },
+      // Trem Venezia → Firenze
+      {
+        fromId: "ita-rialto",
+        toId: "ita-signoria",
+        label: "Trem Venezia→Firenze",
+        waypoints: [
+          [45.4381, 12.3358], // Rialto
+          [45.4408, 12.3210], // Venezia Santa Lucia
+          [45.4050, 11.8800], // Padova
           [44.5000, 11.3400], // Bologna Centrale
           [44.2500, 11.3200], // Prato area
           [43.7762, 11.2480], // Firenze SMN
@@ -596,7 +628,7 @@ export const mapData: Record<string, CityMapData> = {
       type: "flight",
       from: "Aeroporto Fiumicino (FCO)",
       to: "Aeroporto Heathrow (LHR)",
-      time: "09/out · ~2h30 de voo",
+      time: "10/out · ~2h30 de voo",
       details: "Voo Roma → Londres · Heathrow Express ~15min ao centro",
       waypoints: [
         [41.8003, 12.2514],   // FCO — Fiumicino
@@ -612,7 +644,7 @@ export const mapData: Record<string, CityMapData> = {
       type: "flight",
       from: "Aeroporto Heathrow T5 (LHR)",
       to: "Aeroporto Barajas (MAD)",
-      time: "13/out · ~2h de voo",
+      time: "14/out · ~2h de voo",
       details: "Voo Londres → Madrid · Última etapa antes de voltar",
       waypoints: [
         [51.4723, -0.4889],   // LHR — Heathrow T5
@@ -629,15 +661,14 @@ export const mapData: Record<string, CityMapData> = {
       { id: "lon-tate", label: "Tate Modern", lat: 51.5076, lng: -0.0994, day: 19, time: "Tarde", description: "Grátis!" },
       { id: "lon-stpauls", label: "St Paul's Cathedral", lat: 51.5138, lng: -0.0984, day: 19, time: "Tarde", description: "Catedral icônica" },
       { id: "lon-borough", label: "Borough Market", lat: 51.5055, lng: -0.0910, day: 19, time: "Noite", description: "Fish & chips + pub" },
-      { id: "lon-buckingham", label: "Buckingham Palace", lat: 51.5014, lng: -0.1419, day: 20, time: "Manhã", description: "Troca da guarda" },
-      { id: "lon-hyde", label: "Hyde Park", lat: 51.5073, lng: -0.1657, day: 20, time: "Manhã", description: "Passeio" },
-      { id: "lon-british", label: "British Museum", lat: 51.5194, lng: -0.1270, day: 20, time: "Tarde", description: "Grátis!" },
-      { id: "lon-natural", label: "Natural History Museum", lat: 51.4966, lng: -0.1764, day: 20, time: "Tarde", description: "Grátis!" },
-      { id: "lon-covent", label: "Covent Garden", lat: 51.5117, lng: -0.1240, day: 20, time: "Noite", description: "West End Musical" },
-      { id: "lon-tower", label: "Tower of London", lat: 51.5081, lng: -0.0759, day: 21, time: "Manhã", description: "33 GBP/pessoa" },
-      { id: "lon-bridge", label: "Tower Bridge", lat: 51.5055, lng: -0.0754, day: 21, time: "Manhã", description: "12 GBP/pessoa" },
-      { id: "lon-shoreditch", label: "Shoreditch / Brick Lane", lat: 51.5235, lng: -0.0711, day: 21, time: "Tarde", description: "Street art e mercados" },
-      { id: "lon-camden", label: "Camden Town", lat: 51.5392, lng: -0.1426, day: 21, time: "Noite", description: "Alternativo e vibrante" },
+      { id: "lon-tower", label: "Tower of London", lat: 51.5081, lng: -0.0759, day: 20, time: "Manhã", description: "33 GBP/pessoa" },
+      { id: "lon-bridge", label: "Tower Bridge", lat: 51.5055, lng: -0.0754, day: 20, time: "Manhã", description: "12 GBP/pessoa" },
+      { id: "lon-football", label: "Futebol Premier League", lat: 51.5549, lng: -0.1084, day: 20, time: "Tarde/Noite", description: "Emirates/Tottenham/Chelsea/West Ham — ~30-80 GBP" },
+      { id: "lon-buckingham", label: "Buckingham Palace", lat: 51.5014, lng: -0.1419, day: 21, time: "Manhã", description: "Troca da guarda" },
+      { id: "lon-hyde", label: "Hyde Park", lat: 51.5073, lng: -0.1657, day: 21, time: "Manhã", description: "Passeio" },
+      { id: "lon-british", label: "British Museum", lat: 51.5194, lng: -0.1270, day: 21, time: "Tarde", description: "Grátis!" },
+      { id: "lon-natural", label: "Natural History Museum", lat: 51.4966, lng: -0.1764, day: 21, time: "Tarde", description: "Grátis!" },
+      { id: "lon-covent", label: "Covent Garden", lat: 51.5117, lng: -0.1240, day: 21, time: "Noite", description: "West End Musical" },
       { id: "lon-sky-garden", label: "Sky Garden", lat: 51.5114, lng: -0.0836, day: 22, time: "Manhã", description: "Vista grátis!" },
       { id: "lon-oxford", label: "Oxford Street", lat: 51.5145, lng: -0.1445, day: 22, time: "Tarde", description: "Compras + afternoon tea" },
     ],
@@ -648,8 +679,8 @@ export const mapData: Record<string, CityMapData> = {
         lat: 51.5120,
         lng: -0.1300,
         nights: 4,
-        checkIn: "08/out",
-        checkOut: "12/out",
+        checkIn: "10/out",
+        checkOut: "14/out",
         type: "hotel",
         neighborhood: "Covent Garden / West End",
         pricePerNight: "~180 GBP",
@@ -669,7 +700,7 @@ export const mapData: Record<string, CityMapData> = {
       type: "flight",
       from: "Aeroporto Heathrow (LHR)",
       to: "Aeroporto Barajas (MAD)",
-      time: "13/out · ~2h de voo",
+      time: "14/out · ~2h de voo",
       details: "Voo Londres → Madrid · Metrô L8 ao centro",
       waypoints: [
         [51.4713, -0.4524],   // LHR — Heathrow
@@ -685,8 +716,8 @@ export const mapData: Record<string, CityMapData> = {
       type: "flight",
       from: "Aeroporto Barajas (MAD)",
       to: "Aeroporto de Guarulhos (GRU)",
-      time: "14/out · Voo diurno ~10h",
-      details: "Iberia (Avios) · Despedida da Europa!",
+      time: "15/out 11:50 → 17:50",
+      details: "IB0271 Iberia (Avios) · Reserva 94ULXW · Despedida da Europa!",
       waypoints: [
         [40.4719, -3.5626],   // MAD — Barajas
         [36.0, -8.0],         // Sul de Portugal
@@ -710,8 +741,8 @@ export const mapData: Record<string, CityMapData> = {
         lat: 40.4200,
         lng: -3.7020,
         nights: 1,
-        checkIn: "12/out",
-        checkOut: "13/out",
+        checkIn: "14/out",
+        checkOut: "15/out",
         type: "hotel",
         neighborhood: "Sol / Gran Vía",
         pricePerNight: "~120 EUR",
