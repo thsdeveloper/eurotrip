@@ -132,7 +132,7 @@ export const tripData: TripData = {
       colorBorder: "border-green-500/30",
       colorText: "text-green-400",
       transport: "BSB → GRU → MAD",
-      heroImage: "https://images.unsplash.com/photo-1532009877282-3340270e0529?w=1920&q=80",
+      heroImage: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=1920&q=80",
       days: [
         {
           date: "22/set",

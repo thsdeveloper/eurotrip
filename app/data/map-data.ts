@@ -72,6 +72,20 @@ export const mapData: Record<string, CityMapData> = {
       { id: "bsb-aeroporto", label: "Aeroporto de Brasília (BSB)", lat: -15.8711, lng: -47.9186, day: 1, time: "Manhã", description: "Check-in e embarque doméstico" },
       { id: "gru-aeroporto", label: "Aeroporto de Guarulhos (GRU)", lat: -23.4356, lng: -46.4731, day: 2, time: "Dia", description: "Conexão doméstico → internacional" },
     ],
+    accommodations: [
+      {
+        id: "acc-guarulhos",
+        label: "Hotel próximo ao Aeroporto de Guarulhos",
+        lat: -23.4320,
+        lng: -46.4780,
+        nights: 1,
+        checkIn: "22/set",
+        checkOut: "23/set",
+        type: "hotel",
+        neighborhood: "Guarulhos / Próximo ao GRU",
+        tip: "Escolha hotel com transfer gratuito para o aeroporto — facilita muito no dia seguinte!",
+      },
+    ],
     trainRoutes: [
       {
         fromId: "bsb-aeroporto",
