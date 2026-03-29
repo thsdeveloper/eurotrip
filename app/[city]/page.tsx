@@ -7,6 +7,8 @@ import { TripHeader } from "@/app/components/trip-header";
 import { CountryFlag } from "@/app/components/country-flag";
 import { Plane, Heart, ChevronLeft, ChevronRight } from "lucide-react";
 import { MapButton } from "@/app/components/map/map-button";
+import { AccommodationButton } from "@/app/components/accommodation-button";
+import { mapData } from "@/app/data/map-data";
 
 type Params = { city: string };
 
@@ -39,6 +41,7 @@ export default async function CityPage(props: {
     cityIndex < tripData.cities.length - 1
       ? tripData.cities[cityIndex + 1]
       : null;
+  const accommodations = mapData[cityId as keyof typeof mapData]?.accommodations ?? [];
 
   return (
     <div className="min-h-screen bg-background font-sans">
@@ -74,6 +77,12 @@ export default async function CityPage(props: {
                     <span>Dias {city.days[0].dayNumber}{city.days.length > 1 && `-${city.days[city.days.length - 1].dayNumber}`} da viagem</span>
                     <span>·</span>
                     <MapButton cities={tripData.cities} currentIndex={cityIndex} inline />
+                    {accommodations.length > 0 && (
+                      <>
+                        <span>·</span>
+                        <AccommodationButton accommodations={accommodations} cityName={city.name} cityColor={city.color} inline />
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -103,6 +112,12 @@ export default async function CityPage(props: {
                     <span>Dias {city.days[0].dayNumber}{city.days.length > 1 && `-${city.days[city.days.length - 1].dayNumber}`} da viagem</span>
                     <span>·</span>
                     <MapButton cities={tripData.cities} currentIndex={cityIndex} inline />
+                    {accommodations.length > 0 && (
+                      <>
+                        <span>·</span>
+                        <AccommodationButton accommodations={accommodations} cityName={city.name} cityColor={city.color} inline />
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
