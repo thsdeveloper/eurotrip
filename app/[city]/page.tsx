@@ -185,7 +185,7 @@ export default async function CityPage(props: {
           <Plane size={14} />
           <span>Eurotrip 2026 — Lidia & Pedro</span>
           <Heart size={12} className="text-red-400 fill-red-400" />
-          <span>Joquebede & Thiago — v7</span>
+          <span>Joquebede & Thiago — v8</span>
         </p>
       </footer>
     </div>
