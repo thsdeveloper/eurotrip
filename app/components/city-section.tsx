@@ -1,17 +1,9 @@
 import type { City } from "@/app/data/trip";
-import { mapData } from "@/app/data/map-data";
 import { DayCard } from "./day-card";
 import { Rocket } from "lucide-react";
 import { CountryFlag } from "./country-flag";
 
 export function CitySection({ city }: { city: City }) {
-  const cityMapData = mapData[city.id as keyof typeof mapData];
-  const pois = cityMapData?.pois ?? [];
-  const accommodations = cityMapData?.accommodations ?? [];
-  const transportLinks = [
-    ...(cityMapData?.arrival ? [cityMapData.arrival] : []),
-    ...(cityMapData?.departure ? [cityMapData.departure] : []),
-  ];
   return (
     <section id={city.id} className={`city-${city.id}`}>
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
@@ -36,17 +28,14 @@ export function CitySection({ city }: { city: City }) {
         </div>
 
         {/* Days */}
-        <div className="flex flex-col gap-6">
-          {city.days.map((day) => (
+        <div className="flex flex-col gap-3">
+          {city.days.map((day, i) => (
             <DayCard
               key={day.dayNumber}
               day={day}
               color={city.color}
-              cityName={city.name}
-              heroImage={city.heroImage}
-              pois={pois}
-              accommodations={accommodations}
-              transportLinks={transportLinks}
+              cityId={city.id}
+              dayIndex={i}
             />
           ))}
         </div>
