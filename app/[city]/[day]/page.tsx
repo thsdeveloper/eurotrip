@@ -1,12 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { tripData } from "@/app/data/trip";
-import { mapData } from "@/app/data/map-data";
 import type { Metadata } from "next";
 import { TripHeader } from "@/app/components/trip-header";
 import { CountryFlag } from "@/app/components/country-flag";
-import { ActivityDetail } from "@/app/components/activity-detail";
-import { ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react";
+import { TripIcon } from "@/app/components/trip-icon";
+import { ChevronLeft, ChevronRight, ArrowLeft, Lightbulb } from "lucide-react";
 
 type Params = { city: string; day: string };
 
@@ -59,13 +58,7 @@ export default async function DayPage(props: {
   const day = city.days[dayIndex];
   if (!day || isNaN(dayIndex)) notFound();
 
-  const cityMapData = mapData[cityId as keyof typeof mapData];
-  const pois = cityMapData?.pois ?? [];
-  const accommodations = cityMapData?.accommodations ?? [];
-  const transportLinks = [
-    ...(cityMapData?.arrival ? [cityMapData.arrival] : []),
-    ...(cityMapData?.departure ? [cityMapData.departure] : []),
-  ];
+  const daySlugStr = `dia-${dayIndex + 1}`;
 
   // Find this day's position in the global list for prev/next
   const globalIndex = allDays.findIndex(
@@ -134,18 +127,43 @@ export default async function DayPage(props: {
         )}
 
         {/* Activities */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3">
           {day.activities.map((activity, i) => (
-            <ActivityDetail
+            <Link
               key={i}
-              activity={activity}
-              day={day}
-              cityName={city.name}
-              cityColor={city.color}
-              pois={pois}
-              accommodations={accommodations}
-              transportLinks={transportLinks}
-            />
+              href={`/${city.id}/${daySlugStr}/atividade-${i + 1}`}
+              className="group flex items-center gap-4 rounded-xl border border-border bg-card px-5 py-4 transition-colors hover:bg-card-hover"
+            >
+              <div
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg"
+                style={{ backgroundColor: `${city.color}20` }}
+              >
+                <TripIcon name={activity.icon} size={20} className="text-muted group-hover:text-foreground transition-colors" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <span className="text-xs font-medium text-muted">{activity.time}</span>
+                <h3 className="font-semibold truncate">{activity.title}</h3>
+                {activity.description && (
+                  <p className="mt-0.5 text-xs text-muted leading-relaxed line-clamp-1">
+                    {activity.description}
+                  </p>
+                )}
+                {activity.tip && (
+                  <div className="mt-1.5 flex items-center gap-1.5 text-[11px] text-amber-400">
+                    <Lightbulb size={11} className="shrink-0" />
+                    <span className="line-clamp-1">{activity.tip}</span>
+                  </div>
+                )}
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                {activity.cost && (
+                  <span className="hidden sm:inline rounded-md bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">
+                    {activity.cost}
+                  </span>
+                )}
+                <ChevronRight size={14} className="text-muted/50 group-hover:text-foreground transition-colors" />
+              </div>
+            </Link>
           ))}
         </div>
 
